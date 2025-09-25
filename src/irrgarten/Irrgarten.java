@@ -3,18 +3,6 @@ package irrgarten;
 
 public class Irrgarten {
     
-    public enum Directions{
-        LEFT, RIGHT,UP,DOWN
-    }
-    
-    public enum Orientation{
-        VERTICAL, HORIZONTAL
-    }
-    
-    public enum GameCharacter{
-        PLAYER,MONSTER
-    }
-    
     static void pruebaWeapon () {
         Weapon w = new Weapon (2.0f, 3);
         System.out.println(w.toString());
