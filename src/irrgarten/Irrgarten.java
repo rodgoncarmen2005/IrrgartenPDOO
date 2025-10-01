@@ -40,12 +40,6 @@ public class Irrgarten {
         System.out.println("Winner: " + gs.getWinner());
         System.out.println("Log: " + gs.getLog());
     }
-
-    public static void main(String[] args) {
-        pruebaGameState();
-    }
-
-
     
     public static void main(String[] args) {
         // TODO code application logic here
