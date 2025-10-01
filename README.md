@@ -68,10 +68,11 @@ Ruby: 3.2.3
 
 Java: 21.0.4
 
-# Grupo 13
+## Grupo 13
 
 
 # CLASE 2 PRÁCTICAS PDOO
+1 - Octubre - 2025
 
 ### Ruby -> atributos
 altr_reader: nombre
