@@ -21,6 +21,11 @@ public class Shield {
         return salida;
     }
     
+        public boolean discard(){
+        salida=discardElement(uses);
+        return salida;
+    }
+        
     @Override
     public String toString () {
         return "S[" + protection + "," + uses + "]";

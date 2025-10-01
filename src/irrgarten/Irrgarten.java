@@ -23,11 +23,36 @@ public class Irrgarten {
         
     }
     
+    public static void pruebaGameState() {
+        String laberinto = "Laberinto prueba";
+        String jugadores = "j1, j2";
+        String monstruos = "araña, ogro";
+        int numJugadores = 2;
+        boolean ganador = false;
+        String historia = "nada";
+
+        GameState gs = new GameState(laberinto, jugadores, monstruos, numJugadores, ganador, historia);
+
+        System.out.println("Labyrinth: " + gs.getLabyrinth());
+        System.out.println("Players: " + gs.getPlayers());
+        System.out.println("Monsters: " + gs.getMonsters());
+        System.out.println("Current Player: " + gs.getCurrentPlayer());
+        System.out.println("Winner: " + gs.getWinner());
+        System.out.println("Log: " + gs.getLog());
+    }
+
+    public static void main(String[] args) {
+        pruebaGameState();
+    }
+
+
     
     public static void main(String[] args) {
         // TODO code application logic here
         //System.out.println("Archivo para hacer pruebas");
         //pruebaWeapon ();
-        pruebaShield ();
+        pruebaShield();
+        pruebaWeapon();
+        pruebaGameState();
     }
 }
