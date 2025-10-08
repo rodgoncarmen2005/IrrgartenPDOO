@@ -21,10 +21,9 @@ public class Weapon {
         return salida;
     }
     
-    /*public boolean discard(){
-        salida=discardElement(uses);
-        return salida;
-    }*/
+    public boolean discard(){
+        return Dice.discardElement(uses);
+    }
     
     
     @Override
