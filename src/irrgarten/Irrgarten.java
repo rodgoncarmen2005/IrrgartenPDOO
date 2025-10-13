@@ -57,7 +57,16 @@ public class Irrgarten {
          System.out.println("Usos restantes: " + Dice.usesLeft());
          System.out.println("Intensidad: " + Dice.intensity(competence));    
     }
-    
+    static void pruebaMonster (String name, float intelligence,float strength){
+        Monster m = new Monster (name, intelligence, strength);
+        System.out.println(m.toString());
+        System.out.println("¿Muerto? --> " + m.dead());
+        System.out.println("Ataque --> " + m.attack());
+        m.gotWounded();
+        m.setPos(0,0);
+        System.out.println(m.toString());
+    }
+        
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Comenzando la prueba de la Práctica 1 de PDOO");
@@ -96,5 +105,9 @@ public class Irrgarten {
         }
          System.out.println("------------");
         
+        //PRUEBA MONSTRUO
+        System.out.println("Probando un mosntruo...");
+        pruebaMonster("m1", 5.0f , 6.5f); 
+        System.out.println("------------");
     }
 }
