@@ -30,6 +30,15 @@ public class Dice {
     }
     
     //TODOS LOS MÉTODOS SON DE CLASE -> PONER STATIC
+    /**
+     * The function `whoStarts` returns a random integer representing the player who starts the game
+     * out of the given number of players.
+     * 
+     * @param nplayers The `whoStarts` method takes an integer parameter `nplayers`, which represents
+     * the number of players in a game. 
+     * @return a random integer between 0 (inclusive) and `nplayers`
+     * (exclusive) using the `generator.nextInt(nplayers)` method.
+     */
     public static int whoStarts(int nplayers){
         return generator.nextInt(nplayers); 
     }
