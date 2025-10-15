@@ -16,7 +16,7 @@ public class Labyrinth {
     private int exitRow;
     private int exitCol;
     private Monster [][] monsters;
-    //private Player [][] players;
+    private Player [][] players;
     private char [][] labyrinth;
     
     public Labyrinth(int nRows, int nCols, int exitRow, int exitCol){
@@ -32,6 +32,8 @@ public class Labyrinth {
         for(int i = 0; i<this.nRows;i++){
             for (int j = 0; j<this.nCols;j++){
                 this.labyrinth[i][j] = EMPTY_CHAR;
+                this.players[i][j] = null;
+                this.monsters[i][j] = null;
             }
         }
         
@@ -55,6 +57,9 @@ public class Labyrinth {
         for (int fila = 0; fila < nRows; fila++) {
             for (int col = 0; col < nCols; col++) {
                 salida += labyrinth[fila][col] + " ";
+                if(this.players[fila][col] != null){
+                    salida+=this.players[fila][col];
+                }
             }
             salida += "\n";
         }
@@ -120,29 +125,32 @@ public class Labyrinth {
     
     private int[] dir2Pos(int row, int col, Directions direction){
         int[] salida= new int[2];
-        salida[ROW]=row;
-        salida[COL]=col;
         
         switch(direction){
             case LEFT:
-                salida[COL]--;
+                col--;
                 break;
             case RIGHT:
-                salida[COL]++;
+                col++;
                 break;
             case UP:
-                salida[ROW]--;
+                row--;
                 break;
             case DOWN:
-                salida[ROW]++;
+                row++;
                 break;
         }
+        
+        salida[ROW]=row;
+        salida[COL]=col;
         
         return salida;
     } 
     private int[] randomEmptyPos(){
         int row = -1 , col = -1;
         int[] salida= new int[2];
+        row=Dice.randomPos(this.nRows);
+        col=Dice.randomPos(this.nCols);
         while (!this.emptyPos(row, col)){
             row=Dice.randomPos(this.nRows);
             col=Dice.randomPos(this.nCols);
@@ -153,7 +161,7 @@ public class Labyrinth {
         return salida;
     }
     
-    private Monster putPlayer2D(int oldRow, int row, int col, Player player){
+    private Monster putPlayer2D(int oldRow, int oldCol, int row, int col, Player player){
         throw new UnsupportedOperationException();
     }
     

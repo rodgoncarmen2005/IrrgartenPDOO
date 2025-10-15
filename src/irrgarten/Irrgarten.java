@@ -62,7 +62,6 @@ public class Irrgarten {
         System.out.println(m.toString());
         System.out.println("¿Muerto? --> " + m.dead());
         System.out.println("Ataque --> " + m.attack());
-        m.gotWounded();
         m.setPos(0,0);
         System.out.println(m.toString());
     }
