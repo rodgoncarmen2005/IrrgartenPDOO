@@ -65,6 +65,7 @@ public class Player {
     
     public int getCol(){
         return col; 
+        
     }
     
     public int getNumber(){
