@@ -65,7 +65,36 @@ public class Irrgarten {
         m.setPos(0,0);
         System.out.println(m.toString());
     }
-        
+    
+    static void pruebaPlayer(char number, float intelligence, float strength){
+        Player p = new Player(number, intelligence, strength);
+        System.out.println("-Posicion elegida: 3,3"); 
+        p.setPos(3, 3);
+        System.out.println("-¿El jugador está muerto?");
+        System.out.println(p.dead());
+        System.out.println("-Informacion completa del jugador:");        
+        p.toString(); 
+    }
+    
+    static void pruebaGame(int nplayers){
+        Game g = new Game(nplayers);
+        System.out.println("-¿Hay un ganador?"); 
+        System.out.println(g.finished());
+        System.out.println("-El estado del juego es:");
+        System.out.println("---Jugador actual:");
+        System.out.println(g.getGameState().getCurrentPlayer());
+        System.out.println("---Laberinto:");
+        System.out.println(g.getGameState().getLabyrinth());
+        System.out.println("---El registro es:");
+        System.out.println(g.getGameState().getLog());
+        System.out.println("---Los monstruos son:");
+        System.out.println(g.getGameState().getMonsters());
+        System.out.println("---Los jugadores son:");
+        System.out.println(g.getGameState().getPlayers());
+        System.out.println("---El ganador es:");
+        System.out.println(g.getGameState().getWinner());
+    }
+                    
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Comenzando la prueba de la Práctica 1 de PDOO");
@@ -107,6 +136,16 @@ public class Irrgarten {
         //PRUEBA MONSTRUO
         System.out.println("Probando un mosntruo...");
         pruebaMonster("m1", 5.0f , 6.5f); 
+        System.out.println("------------");
+        
+        //PRUEBA PLAYER
+        System.out.println("Probando un jugador...");
+        pruebaPlayer('2', 5.5f, 7.32f); 
+        System.out.println("------------");
+        
+        //PRUEBA GAME
+        System.out.println("Probando un juego...");
+        pruebaGame(5);      
         System.out.println("------------");
     }
 }

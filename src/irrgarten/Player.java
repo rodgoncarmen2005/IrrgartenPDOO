@@ -114,12 +114,14 @@ public class Player {
     private Weapon newWeapon(){
         Weapon w = new Weapon(Dice.weaponPower(), Dice.usesLeft()); 
         //weapons.add(w);
+        return w; 
     }
     
     //REVISAR
     private Shield newShield(){
         Shield s = new Shield(Dice.shieldPower(), Dice.usesLeft()); 
         //shields.add(s); 
+        return s; 
     }
     
     private float sumWeapons(){
