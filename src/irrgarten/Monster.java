@@ -34,7 +34,7 @@ public class Monster {
         this.col = col;
     }
 
-    public void gotWounded(){
+    private void gotWounded(){
         health--;
     }    
     
