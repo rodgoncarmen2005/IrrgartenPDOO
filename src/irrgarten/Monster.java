@@ -42,9 +42,18 @@ public class Monster {
 
 
     public boolean defend(float receivedAttack){
-        throw new UnsupportedOperationException();
+        boolean isDead;
+        if(this.dead()){
+            return true;
+        }else{
+            float defensa = Dice.intensity(intelligence);
+            if (defensa < receivedAttack){
+                this.gotWounded();
+            }
+            isDead = this.dead();
+        }
+        return isDead;
     }    
-
 
     /**
      * The function `setPos` sets the row and column values of an object.
