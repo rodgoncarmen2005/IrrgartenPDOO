@@ -91,7 +91,7 @@ public class Labyrinth {
         if (orientation == Orientation.VERTICAL){
             incRow++;
         }
-        if (orientation == Orientation.VERTICAL){
+        if (orientation == Orientation.HORIZONTAL){
             incCol++;
         }
         
