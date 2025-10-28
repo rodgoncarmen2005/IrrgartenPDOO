@@ -89,4 +89,10 @@ public class Dice {
     public static boolean discardElement(int usesLeft){ //Debe ser un float para que no haya division entera
         return generator.nextFloat() >= (usesLeft*1.0f/MAX_USES); 
     } 
+    
+    public static Orientation randomOrientation(){
+        if (generator.nextInt() > 0.5f) return Orientation.HORIZONTAL;
+        else return Orientation.VERTICAL;
+    }
+
 }

@@ -16,25 +16,40 @@ public class Game {
     
     private ArrayList<Player> players; //?? Relacion con Player
     
-    private ArrayList<Monster> monster; //?? Relacion con Monster
+    private ArrayList<Monster> monsters; //?? Relacion con Monster
     
     private Labyrinth labyrinth; //?? Relacion con Labyrinth
+    
+    private static final int ROWS = 10; 
+    
+    private static final int COLUMNS = 10; 
+    
+    private static final int NUM_MONSTERS = 5; 
+    
+    private static final int NUM_BLOCKS = 5; 
     
     //La relaciones de dependencia debiles no generan atributos verdad???
     
     
     public Game (int nplayers){
-        Player p = new Player; 
-        for (int i = 0; i < nplayer; ++i){
+        
+        players = new ArrayList<>(); 
+        monsters = new ArrayList<>(); 
+        
+        for (int i = 0; i < nplayers; ++i){
+            Player p = new Player(Character.forDigit(i, 10), Dice.randomIntelligence(), Dice.randomStrength());
             players.add(p); 
         }
         
         currentPlayerIndex = Dice.whoStarts(nplayers);
+     
+        currentPlayer = players.get(currentPlayerIndex);
         
-        //monster
+        log = "The game begins \n"; 
         
-        labyrinth = new Labyrinth(); //Que tam???
-        
+        labyrinth = new Labyrinth(ROWS, COLUMNS, Dice.randomPos(10), Dice.randomPos(10)); //Que tam???
+        configureLabyrinth(); 
+        labyrinth.spreadPlayers(players);   
     }
     
     public boolean finished(){
@@ -46,15 +61,32 @@ public class Game {
     }
     
     public GameState getGameState(){
-        
+        GameState game = new GameState(labyrinth.toString(), players.toString(), monsters.toString(), currentPlayerIndex, finished(), log); 
+        return game; 
     }
     
     private void configureLabyrinth(){
+        for(int i = 0; i < NUM_MONSTERS; i++){
+            Monster monster = new Monster("Monster"+i, Dice.randomIntelligence(), Dice.randomStrength()); 
+            monsters.add(monster); 
+            labyrinth.addMonster(Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), monster); //COINCIDIRA CON UN PLAYER???
+        }
         
+        for(int i = 0; i < NUM_BLOCKS; i++){
+            labyrinth.addBlock(Dice.randomOrientation(), ROWS, ROWS, 2);//COINCIDIRA CON UN PLAYER??? REVISAR EL LARGO
+        }        
     }
     
     private void nextPlayer(){
-        currentPlayerIndex = /*siguiente jugador*/;
+        if (currentPlayerIndex == players.size()-1){
+            currentPlayerIndex = 0; 
+            currentPlayer = players.get(0); 
+        }
+        else{
+            currentPlayerIndex++;
+            currentPlayer = players.get(currentPlayerIndex); 
+        } 
+        
     }
     
     private Directions actualDirection(Directions preferredDirection){
@@ -74,31 +106,31 @@ public class Game {
     }
     
     private void logPlayerWon(){
-          log.concat("Winner: " + /*ganador*/); 
+          log.concat("Winner: player " + currentPlayerIndex + "\n"); 
     }
     
     private void logMonsterWon(){
-        
+           log.concat("Winner: monster" + "\n");
     }
     
     private void logResurrected(){
-
+            log.concat("Resurrected: player " + currentPlayerIndex+ "\n");
     }
     
     private void logPlayerSkipTurn(){
-        
+            log.concat("Player " + currentPlayerIndex + "skipped turn due to death" + "\n"); 
     }
     
     private void logPlayerNoOrders(){
-        
+            log.concat("The instruction for player" + currentPlayerIndex + "could not be followed." + "\n"); 
     }
     
     private void logNoMonster(){
-        
+            log.concat("Player " + currentPlayerIndex + "moved to an empty square or it was not possible to move.");
     }
     
     private void logRounds(int rounds, int max){
-        
+            log.concat("Round " + rounds + "out of " + max + "\n"); 
     }
     
     

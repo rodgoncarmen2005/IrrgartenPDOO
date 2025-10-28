@@ -117,7 +117,7 @@ public class Labyrinth {
         if(canStepOn(row,col+1)){
             output.add(Directions.RIGHT);
         }
-        if(canStepOn(roW,col-1)){
+        if(canStepOn(row,col-1)){
             output.add(Directions.LEFT);
         }
     }
@@ -213,7 +213,7 @@ public class Labyrinth {
             labyrinth[row][col] = COMBAT_CHAR;
             output = monsters[row][col];
         }else{
-            char number = player.getNumber();
+            char number = Character.forDigit(player.getNumber(), 10);
             labyrinth[row][col] = number;
         }
         
