@@ -108,6 +108,8 @@ public class Labyrinth {
     
     public ArrayList<Directions> validMoves(int row,int col){
         ArrayList<Directions> output;
+        output = new ArrayList<>(); 
+        
         if(canStepOn(row+1,col)){
             output.add(Directions.DOWN);
         }
@@ -120,6 +122,8 @@ public class Labyrinth {
         if(canStepOn(row,col-1)){
             output.add(Directions.LEFT);
         }
+        
+        return output; 
     }
     
     private boolean posOK(int row, int col){

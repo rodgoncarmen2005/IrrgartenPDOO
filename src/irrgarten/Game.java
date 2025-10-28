@@ -73,7 +73,7 @@ public class Game {
         }
         
         for(int i = 0; i < NUM_BLOCKS; i++){
-            labyrinth.addBlock(Dice.randomOrientation(), ROWS, ROWS, 2);//COINCIDIRA CON UN PLAYER??? REVISAR EL LARGO
+            labyrinth.addBlock(Dice.randomOrientation(), ROWS, COLUMNS, 2);//COINCIDIRA CON UN PLAYER??? REVISAR EL LARGO
         }        
     }
     
