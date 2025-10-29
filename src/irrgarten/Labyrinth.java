@@ -2,7 +2,6 @@
 package irrgarten;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 public class Labyrinth {
     private static final char BLOCK_CHAR = 'X';
@@ -147,7 +146,7 @@ public class Labyrinth {
     }
     
     public boolean canStepOn(int row, int col){
-        return posOK(row, col) && (emptyPos(row,col) || monsterPos(row,col) || combatPos(row,col));
+        return posOK(row, col) && (emptyPos(row,col) || monsterPos(row,col) || exitPos(row,col));
     }
     
      private void updateOldPos(int row, int col){
