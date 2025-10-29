@@ -67,7 +67,7 @@ public class Player {
         
     }
     
-    public int getNumber(){
+    public char getNumber(){
         return number; 
     }
     

@@ -57,14 +57,17 @@ public class Labyrinth {
         
         for (int fila = 0; fila < nRows; fila++) {
             for (int col = 0; col < nCols; col++) {
-                salida += labyrinth[fila][col] + " ";
-                if(this.players[fila][col] != null){
-                    salida+=this.players[fila][col];
+                char c = labyrinth[fila][col];
+
+                // Si hay jugador en esta posición, lo mostramos
+                if (players[fila][col] != null) {
+                    c = players[fila][col].getNumber(); // o 'J' + número si quieres
                 }
+
+                salida += c + " ";
             }
             salida += "\n";
         }
-
         return salida;
     }
     
@@ -126,7 +129,7 @@ public class Labyrinth {
     }
     
     private boolean posOK(int row, int col){
-        return (0<=row && row<=nRows && 0<=col && col<=nCols);
+        return (0<=row && row<nRows && 0<=col && col<nCols);
     }
 
     private boolean emptyPos(int row, int col){
@@ -149,7 +152,7 @@ public class Labyrinth {
         return posOK(row, col) && (emptyPos(row,col) || monsterPos(row,col) || exitPos(row,col));
     }
     
-     private void updateOldPos(int row, int col){
+    private void updateOldPos(int row, int col){
         if (this.posOK(row, col)){
             if(combatPos(row, col)){
                 this.labyrinth[row][col]=MONSTER_CHAR;
@@ -201,30 +204,28 @@ public class Labyrinth {
     private Monster putPlayer2D(int oldRow, int oldCol, int row, int col, Player player){
         Monster output = null;
         if(canStepOn(row, col)){
-            if(canStepOn(oldRow,oldCol)){
+            if(posOK(oldRow,oldCol)){
                 Player p = players[oldRow][oldCol];
                 if(p == player){
                     this.updateOldPos(oldRow, oldCol);
                     players[oldRow][oldCol] = null;
                 }
             }
-        }
-        
         
         boolean monsterPos = this.monsterPos(row, col);
         if(monsterPos){
             labyrinth[row][col] = COMBAT_CHAR;
             output = monsters[row][col];
         }else{
-            char number = Character.forDigit(player.getNumber(), 10);
+            char number = player.getNumber();
             labyrinth[row][col] = number;
         }
         
         players[row][col] = player;
         player.setPos(row, col);
         
+        }
         return output;
     }
     
-
 }

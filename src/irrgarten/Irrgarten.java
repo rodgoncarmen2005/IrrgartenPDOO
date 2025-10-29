@@ -1,5 +1,7 @@
 
-package irrgarten; 
+package irrgarten;
+
+import java.util.ArrayList;
 
 public class Irrgarten {
     
@@ -94,7 +96,37 @@ public class Irrgarten {
         System.out.println("---El ganador es:");
         System.out.println(g.getGameState().getWinner());
     }
-                    
+    
+    static void pruebaLaberinth(){
+        Labyrinth l = new Labyrinth(10,10,9,9);
+        System.out.println("Laberinto inicial:");
+        System.out.println(l.toString());
+        System.out.println("Añadiendo bloques...");
+        l.addBlock(Orientation.HORIZONTAL, 0, 5, 5);
+        l.addBlock(Orientation.VERTICAL, 2, 2, 6);
+        System.out.println(l.toString());
+        ArrayList<Player> players = new ArrayList<Player>();
+        players.add(new Player('1',5.0f,7.0f));
+        players.add(new Player('2',6.0f,6.5f));
+        System.out.println("Añadiendo jugadores...");
+        l.spreadPlayers(players);
+        System.out.println(l.toString());
+        System.out.println("Añadiendo un monstruo...");
+        Monster m = new Monster("Ogro",5.0f,6.0f);
+        l.addMonster(5,5,m);
+        System.out.println(l.toString());
+        System.out.println("Moviendo al jugador 1 hacia abajo...");
+        l.putPlayer(Directions.DOWN, players.get(0));
+        System.out.println(l.toString());
+        System.out.println("Calculando movimientos validos para el jugador 1...");
+        Player player = players.get(0);
+        int row = player.getRow();
+        int col = player.getCol();
+        ArrayList<Directions> array = l.validMoves(row, col);
+        System.out.println("Movimientos validos para el jugador 1 en la posicion (" + row + "," + col + "): " + array);
+        l.putPlayer(Directions.RIGHT, player);
+        System.out.println(l.toString());   
+    }
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Comenzando la prueba de la Práctica 1 de PDOO");
@@ -146,6 +178,11 @@ public class Irrgarten {
         //PRUEBA GAME
         System.out.println("Probando un juego...");
         pruebaGame(5);      
+        System.out.println("------------");
+
+        //PRUEBA LABERINTO
+        System.out.println("Probando un laberinto...");
+        pruebaLaberinth();
         System.out.println("------------");
     }
 }
