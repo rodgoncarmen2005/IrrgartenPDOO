@@ -8,7 +8,7 @@ public class Player {
     
     private static final int MAX_WEAPONS=2; 
     
-    private static final int MAX_SHIELD=3;
+    private static final int MAX_SHIELDS=3;
     
     private static final int INITIAL_HEALTH=10; 
     
@@ -82,7 +82,16 @@ public class Player {
     }
     
     public Directions move(Directions direction, ArrayList<Directions> validMoves){//ARRAYLIST O ARRAY NORMAL[]
-        throw new UnsupportedOperationException();
+        
+        int size = validMoves.size();
+        boolean contained = validMoves.contains(direction);
+        
+        if ((size > 0) && !contained){
+            Directions firstElement = validMoves.get(0); 
+            return firstElement; 
+        }
+        else return direction; 
+       
     }
     
     public float attack(){
@@ -94,7 +103,22 @@ public class Player {
     }
     
     public void receivedReward(){
-        throw new UnsupportedOperationException();
+       
+        int wReward = Dice.weaponsReward(); 
+        int sReward = Dice.shieldsReward(); 
+        
+        for(int i = 1; i < wReward; i++){
+            Weapon wnew = newWeapon(); 
+            receivedWeapon(wnew);
+        }
+        
+        for(int i = 1; i < sReward; i++){
+            Shield snew = newShield(); 
+            receivedShield(snew);
+        }
+        
+        int extraHealth = Dice.healthReward();
+        health += extraHealth;
     }
     
     @Override
@@ -103,11 +127,36 @@ public class Player {
     }
     
     private void receivedWeapon(Weapon w){
-        throw new UnsupportedOperationException();
+        for(int i = 0; i < weapons.size(); ++i){
+            Weapon wi = weapons.get(i); 
+            boolean discard = wi.discard();
+            
+            if (discard){
+                weapons.remove(wi);
+                i--; //Para no saltarnos ningun elemento si eliminamos uno.
+            }
+        }
+        
+        if(weapons.size() < MAX_WEAPONS){
+            weapons.add(w);
+        }
     }
     
     private void receivedShield(Shield s){
-        throw new UnsupportedOperationException();
+        
+        for(int i = 0; i < shields.size(); ++i){
+            Shield si = shields.get(i); 
+            boolean discard = si.discard();
+            
+            if (discard){
+                shields.remove(si);
+                i--; //Para no saltarnos ningun elemento si eliminamos uno.
+            }
+        }
+        
+        if(shields.size() < MAX_SHIELDS){
+            shields.add(s);
+        }
     }
     
     //REVISAR
@@ -145,7 +194,21 @@ public class Player {
     }
     
     private boolean manageHit(float recivedAttack){
-        throw new UnsupportedOperationException();
+        float defense = defensiveEnergy(); 
+        boolean lose = false; 
+        
+        if (defense < recivedAttack){
+            gotWounded(); 
+            incConsecutiveHits(); 
+        }
+        else resetHits(); 
+        
+        if ((consecutiveHits == HITS2LOSE) || (dead())){ //SE PUEDE LLAMAR DIRECTAMENTE A HITS2LOSE AUN SIENDO DE CLASE??
+            resetHits(); 
+            lose = true; 
+        }
+        
+        return lose;     
     }
     
     private void resetHits(){
