@@ -23,11 +23,9 @@ public class Game {
     
     private static final int COLUMNS = 10; 
     
-    private static final int NUM_MONSTERS = 5; 
+    private static final int NUM_MONSTERS = 2; 
     
-    private static final int NUM_BLOCKS = 5; 
-    
-    //La relaciones de dependencia debiles no generan atributos verdad???
+    private static final int NUM_BLOCKS = 2; 
     
     
     public Game (int nplayers){
@@ -46,7 +44,7 @@ public class Game {
         
         log = "The game begins \n"; 
         
-        labyrinth = new Labyrinth(ROWS, COLUMNS, Dice.randomPos(10), Dice.randomPos(10)); //Que tam???
+        labyrinth = new Labyrinth(ROWS, COLUMNS, Dice.randomPos(ROWS), Dice.randomPos(COLUMNS));
         configureLabyrinth(); 
         labyrinth.spreadPlayers(players);   
     }
@@ -92,16 +90,25 @@ public class Game {
         return game; 
     }
     
+    //REVISAR
     private void configureLabyrinth(){
         for(int i = 0; i < NUM_MONSTERS; i++){
             Monster monster = new Monster("Monster"+i, Dice.randomIntelligence(), Dice.randomStrength()); 
             monsters.add(monster); 
-            labyrinth.addMonster(Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), monster); //COINCIDIRA CON UN PLAYER???
+            labyrinth.addMonster(Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), monster); 
         }
         
-        for(int i = 0; i < NUM_BLOCKS; i++){
-            labyrinth.addBlock(Dice.randomOrientation(), ROWS, COLUMNS, 2);//COINCIDIRA CON UN PLAYER??? REVISAR EL LARGO
-        }        
+        //Configuramos las paredes del laberinto
+        /*labyrinth.addBlock(Orientation.HORIZONTAL, 0, 0, COLUMNS);
+        labyrinth.addBlock(Orientation.HORIZONTAL, ROWS-1, 0, COLUMNS);
+        labyrinth.addBlock(Orientation.VERTICAL, 0, 0, ROWS);
+        labyrinth.addBlock(Orientation.VERTICAL, 0, COLUMNS-1, ROWS);*/
+        
+        //PREFIJADO
+        /*for(int i = 0; i < NUM_BLOCKS; i++){
+            labyrinth.addBlock(Dice.randomOrientation(), Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), 2);//REVISAR EL LARGO
+        }*/
+        labyrinth.addBlock(Orientation.HORIZONTAL, 5, 4, 2); //EJEMPLO, PONER MAS
     }
     
     private void nextPlayer(){
@@ -112,8 +119,7 @@ public class Game {
         else{
             currentPlayerIndex++;
             currentPlayer = players.get(currentPlayerIndex); 
-        } 
-        
+        }   
     }
     
     private Directions actualDirection(Directions preferredDirection){
@@ -123,8 +129,7 @@ public class Game {
         
         ArrayList<Directions> validMoves = labyrinth.validMoves(currentRow, currentCol);
         
-        return currentPlayer.move(preferredDirection, validMoves);
-                
+        return currentPlayer.move(preferredDirection, validMoves);         
     }
     
     private GameCharacter combat(Monster monster){

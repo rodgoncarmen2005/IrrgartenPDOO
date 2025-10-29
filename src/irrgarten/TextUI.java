@@ -1,5 +1,6 @@
 
-package irrgarten.UI;
+//package irrgarten.UI;
+package irrgarten;
 
 import irrgarten.Directions;
 import irrgarten.GameState;
@@ -22,7 +23,7 @@ public class TextUI {
         Directions direction = Directions.DOWN;
         boolean gotInput = false;
         
-        while (!gotInput) {
+        while (!gotInput) { //Sigue leyendo hasta que reciba una entrada correcta
             char c = readChar();
             switch(c) {
                 case 'w':
@@ -51,6 +52,8 @@ public class TextUI {
     }
     
     public void showGame(GameState gameState) {   
+            //HAY QUE IMPLEMENTARLO
+            //Secuencia de cadenas por consola con los atributos de GameState
     }
     
 }

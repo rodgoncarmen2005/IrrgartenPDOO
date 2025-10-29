@@ -90,9 +90,9 @@ public class Dice {
         return generator.nextFloat() >= (usesLeft*1.0f/MAX_USES); 
     } 
     
-    public static Orientation randomOrientation(){
+    /*public static Orientation randomOrientation(){
         if (generator.nextInt() > 0.5f) return Orientation.HORIZONTAL;
         else return Orientation.VERTICAL;
-    }
+    }*/
 
 }
