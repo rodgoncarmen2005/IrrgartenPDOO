@@ -141,14 +141,14 @@ public class Player {
         }
     }
     
-    private void receivedShield(Shield s){
+    private void receivedShield(Shield s){ //USAR ITERADORES
         
         for(int i = 0; i < shields.size(); ++i){
             Shield si = shields.get(i); 
             boolean discard = si.discard();
             
             if (discard){
-                shields.remove(si);
+                shields.remove(si); //it.remove() //RUBY: @weapons.delete{|wi| wi.discard()}
                 i--; //Para no saltarnos ningun elemento si eliminamos uno.
             }
         }
