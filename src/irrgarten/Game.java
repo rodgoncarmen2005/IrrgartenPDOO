@@ -108,7 +108,8 @@ public class Game {
         /*for(int i = 0; i < NUM_BLOCKS; i++){
             labyrinth.addBlock(Dice.randomOrientation(), Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), 2);//REVISAR EL LARGO
         }*/
-        labyrinth.addBlock(Orientation.HORIZONTAL, 5, 4, 2); //EJEMPLO, PONER MAS
+        labyrinth.addBlock(Orientation.HORIZONTAL, 5, 4, 2);
+        labyrinth.addBlock(Orientation.VERTICAL, 9, 8, 1);
     }
     
     private void nextPlayer(){

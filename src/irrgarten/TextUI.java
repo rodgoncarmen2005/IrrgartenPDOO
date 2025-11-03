@@ -52,8 +52,15 @@ public class TextUI {
     }
     
     public void showGame(GameState gameState) {   
-            //HAY QUE IMPLEMENTARLO
-            //Secuencia de cadenas por consola con los atributos de GameState
-    }
-    
+        
+        //Secuencia de cadenas por consola con los atributos de GameState
+        System.out.print(gameState.getPlayers() + "\n");
+        System.out.print(gameState.getMonsters() + "\n");
+        System.out.print(gameState.getLabyrinth() + "\n");
+        System.out.print(gameState.getLog() + "\n");
+                
+        if (gameState.getWinner()) System.out.print("Winner: Player " + gameState.getCurrentPlayer() + "\n");
+        else System.out.print("Current player: " + gameState.getCurrentPlayer() + "\n");
+        
+    }  
 }
