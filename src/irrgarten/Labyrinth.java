@@ -149,7 +149,9 @@ public class Labyrinth {
     }
     
     public boolean canStepOn(int row, int col){
-        return posOK(row, col) && (emptyPos(row,col) || monsterPos(row,col) || exitPos(row,col));
+        boolean puede = this.posOK(row,col);
+        puede = puede && (this.monsterPos(row, col) || this.exitPos(row, col) || this.emptyPos(row, col));
+        return puede;
     }
     
     private void updateOldPos(int row, int col){
@@ -223,7 +225,6 @@ public class Labyrinth {
         
         players[row][col] = player;
         player.setPos(row, col);
-        
         }
         return output;
     }

@@ -47,6 +47,7 @@ public class Game {
         labyrinth = new Labyrinth(ROWS, COLUMNS, Dice.randomPos(ROWS), Dice.randomPos(COLUMNS));
         configureLabyrinth(); 
         labyrinth.spreadPlayers(players);   
+        log = "Empieza el juego";
     }
     
     public boolean finished(){
