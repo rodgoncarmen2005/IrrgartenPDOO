@@ -67,7 +67,7 @@ public class Game {
                 logPlayerNoOrders();
             }
             
-            Monster monster = labyrinth.putPlayer(direction, currentPlayer);
+            Monster monster = this.labyrinth.putPlayer(direction, currentPlayer);
             
             if (monster == null){
                 logNoMonster();
@@ -87,11 +87,23 @@ public class Game {
     }
     
     public GameState getGameState(){
-        GameState game = new GameState(labyrinth.toString(), players.toString(), monsters.toString(), currentPlayerIndex, finished(), log); 
-        return game; 
+       
+        String players="";
+        String monsters="";
+        
+        for (int i=0; i<this.players.size(); i++){
+            players+="+ " + this.players.get(i).toString()+"\n";
+        }
+        for (int i=0; i<this.monsters.size(); i++){
+            monsters+="+ " + this.monsters.get(i).toString()+"\n";
+        }
+        
+        GameState game = new GameState (this.labyrinth.toString(), players,
+                                monsters, this.currentPlayerIndex, this.finished(), this.log);
+        
+        return game;
     }
     
-    //REVISAR
     private void configureLabyrinth(){
         for(int i = 0; i < NUM_MONSTERS; i++){
             Monster monster = new Monster("Monster"+i, Dice.randomIntelligence(), Dice.randomStrength()); 

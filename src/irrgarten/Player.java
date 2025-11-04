@@ -95,6 +95,7 @@ public class Player {
        
     }
     
+    
     public float attack(){
         return strength + sumWeapons(); 
     }    
@@ -167,9 +168,7 @@ public class Player {
     }
     
     private void receivedShield(Shield s){ 
-        
-        //PONER LA VERSION DEFINITIVA IGUAL A receivedWeapon(Weapon w)
-        
+               
         for(int i = shields.size()-1; i >= 0; --i){
             Shield si = shields.get(i); 
             boolean discard = si.discard();

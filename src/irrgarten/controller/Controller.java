@@ -1,10 +1,10 @@
-//package irrgarten.controller;
-package irrgarten;
+package irrgarten.controller;
+
 
 import irrgarten.Directions;
 import irrgarten.Game;
-//import irrgarten.UI.TextUI;
-import irrgarten.TextUI;
+import irrgarten.UI.TextUI;
+
 
 public class Controller {
     
@@ -21,11 +21,10 @@ public class Controller {
         while (!endOfGame) {
             view.showGame(game.getGameState()); 
             Directions direction = view.nextMove(); //Pide un movimiento al usuario
-            endOfGame = game.nextStep(direction);
+             endOfGame = game.nextStep(direction);
         }
       view.showGame(game.getGameState()); //Muestra la informacion una vez terminado el juego  
-    }
-    
+    }    
 }
 
 
