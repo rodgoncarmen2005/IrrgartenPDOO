@@ -124,6 +124,7 @@ public class Irrgarten {
         int col = player.getCol();
         ArrayList<Directions> array = l.validMoves(row, col);
         System.out.println("Movimientos validos para el jugador 1 en la posicion (" + row + "," + col + "): " + array);
+        System.out.println("Moviendo al jugador 1 hacia la derecha...");
         l.putPlayer(Directions.RIGHT, player);
         System.out.println(l.toString());   
     }
