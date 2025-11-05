@@ -79,7 +79,7 @@ public class Player {
     }
     
     public boolean dead(){
-       return health > 0; 
+       return health <= 0; 
     }
     
     public Directions move(Directions direction, ArrayList<Directions> validMoves){

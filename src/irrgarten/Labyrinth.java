@@ -58,9 +58,8 @@ public class Labyrinth {
         for (int fila = 0; fila < nRows; fila++) {
             for (int col = 0; col < nCols; col++) {
                 char c = labyrinth[fila][col];
-
                 // Si hay jugador en esta posición, lo mostramos
-                if (players[fila][col] != null) {
+                if ((players[fila][col] != null)&&(c != COMBAT_CHAR)) {
                     c = players[fila][col].getNumber(); // o 'J' + número si quieres
                 }
 

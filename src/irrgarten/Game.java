@@ -103,6 +103,7 @@ public class Game {
         
         return game;
     }
+
     
     private void configureLabyrinth(){
         for(int i = 0; i < NUM_MONSTERS; i++){
@@ -157,7 +158,7 @@ public class Game {
         while((!lose) && (rounds < MAX_ROUNDS)){
             winner = GameCharacter.MONSTER;
             rounds++;
-            
+           
             float monsterAttack = monster.attack();
             lose = currentPlayer.defend(monsterAttack);
             
