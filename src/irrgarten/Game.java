@@ -5,29 +5,33 @@ import java.util.ArrayList; //https://docs.oracle.com/javase/8/docs/api/java/uti
 
 public class Game {
     
-    private static final int MAX_ROUNDS = 10; //Máximo de rondas en el juego
+    private static final int MAX_ROUNDS = 10; //(Máximo de rondas en el juego)
     
-    private int currentPlayerIndex; //El juegador que posee el turno
+    private int currentPlayerIndex; //(Indice del jugador que posee el turno)
     
-    private String log; //????
+    private String log; //
     
-    private Player currentPlayer; //??? Relacion con Player
+    private Player currentPlayer; //Relacion con Player. (Jugador actual)
     
-    private ArrayList<Player> players; //?? Relacion con Player
+    private ArrayList<Player> players; //Relacion con Player. (Array de jugadores)
     
-    private ArrayList<Monster> monsters; //?? Relacion con Monster
+    private ArrayList<Monster> monsters; //Relacion con Monster. (Array de monstruos)
     
-    private Labyrinth labyrinth; //?? Relacion con Labyrinth
+    private Labyrinth labyrinth; //Relacion con Labyrinth. (Laberinto del juego)
     
-    private static final int ROWS = 10; 
+    private static final int ROWS = 10; //(Filas del laberinto)
     
-    private static final int COLUMNS = 10; 
+    private static final int COLUMNS = 10; //(Columnas del laberinto)
     
-    private static final int NUM_MONSTERS = 2; 
+    private static final int NUM_MONSTERS = 2; //(Numero de monstruos del juego)
     
-    private static final int NUM_BLOCKS = 2; 
+    private static final int NUM_BLOCKS = 2; //(Numero de obstaculos del juego)
     
-    
+    /**
+     * Constructor de la clase Player. Se crean los jugadores y se reparten, se crea y configura
+     * el laberinto y se decide quien empieza. 
+     * @param nplayers numero de jugadores de la partida.
+     */
     public Game (int nplayers){
         
         players = new ArrayList<>(); 
@@ -50,6 +54,10 @@ public class Game {
         log = "Empieza el juego";
     }
     
+    /**
+     * Indica si hay un ganador mediante el metodo de la clase Labyrinth.
+     * @return true si hay un ganador y se acaba el juego.
+     */
     public boolean finished(){
         return labyrinth.haveAWinner(); 
     }
@@ -192,30 +200,53 @@ public class Game {
         else logPlayerSkipTurn();
     }
     
+    /**
+     * Se añade a log el jugador ganador del combate.
+     */
     private void logPlayerWon(){
           log.concat("Winner: player " + currentPlayerIndex + "\n"); 
     }
     
+    /**
+     * Se añade a log el monstruo ganador del combate.
+     */
     private void logMonsterWon(){
            log.concat("Winner: monster" + "\n");
     }
     
+    /**
+     * Se añade a log que el jugador actual ha resucitado.
+     */
     private void logResurrected(){
             log.concat("Resurrected: player " + currentPlayerIndex+ "\n");
     }
     
+    /**
+     * Se añade a log que el jugador a perdido su turno debido a que estaba muerto.
+     */
     private void logPlayerSkipTurn(){
             log.concat("Player " + currentPlayerIndex + "skipped turn due to death" + "\n"); 
     }
     
+    /**
+     * Se añade a log que el jugador ha intentado un accion no permitida.
+     */
     private void logPlayerNoOrders(){
             log.concat("The instruction for player" + currentPlayerIndex + "could not be followed." + "\n"); 
     }
     
+    /**
+     * Se añade a log que el jugador se ha movido a una casilla vacia o no ha sido posible moverse.
+     */
     private void logNoMonster(){
             log.concat("Player " + currentPlayerIndex + "moved to an empty square or it was not possible to move.");
     }
     
+    /**
+     * Se añade a log que se han producido rounds/max rondas de combate.
+     * @param rounds numero de rondas que se han producido.
+     * @param max max numero de rondas permitidas en un combate.
+     */
     private void logRounds(int rounds, int max){
             log.concat("Round " + rounds + "out of " + max + "\n"); 
     }
