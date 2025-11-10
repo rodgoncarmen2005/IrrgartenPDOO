@@ -15,7 +15,7 @@ public class Player {
     
     private static final int HITS2LOSE = 3; //(num de golpes que puede recibir antes de morir)
     
-    private String name; //(nombre deljugador)
+    private String name; //(nombre del jugador)
     
     private char number; //(numero identificador del jugador)
     
@@ -114,7 +114,7 @@ public class Player {
     }
     
     /**
-     * FALTA
+     * 
      * @param direction
      * @param validMoves
      * @return 
@@ -249,7 +249,11 @@ public class Player {
         Shield s = new Shield(Dice.shieldPower(), Dice.usesLeft()); 
         return s; 
     }
- 
+    
+    /**
+     * Attack de todas las armas del jugador. 
+     * @return suma del resultado del metodo attack de todas las armas
+     */
     private float sumWeapons(){
         float sum = 0.0f;
         for(int i = 0; i < weapons.size(); ++i){
@@ -258,6 +262,10 @@ public class Player {
         return sum; 
     }
     
+    /**
+     * Protect de todos los escudos.
+     * @return suma del resultado de llamar al método protect de todos sus escudos.
+     */
     private float sumShields(){
         float sum = 0.0f; 
         for (int i = 0; i < shields.size(); ++i){
@@ -266,10 +274,19 @@ public class Player {
         return sum; 
     }
     
+    /**
+     * Defensa total del jugador como su inteligencia + proteccion de sus escudos.
+     * @return suma de inteligencia + proteccion de sus escudos. 
+     */
     private float defensiveEnergy(){
         return intelligence + sumShields(); 
     }
     
+    /**
+     * ó
+     * @param recivedAttack
+     * @return 
+     */
     private boolean manageHit(float recivedAttack){
         float defense = defensiveEnergy(); 
         boolean lose = false; 

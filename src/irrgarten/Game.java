@@ -94,6 +94,10 @@ public class Game {
         return endGame;
     }
     
+    /**
+     * Genera una instancia de GameState integrando toda la información del estado del juego.
+     * @return objeto GameState con el estado actual del juego.
+     */
     public GameState getGameState(){
        
         String players="";
@@ -112,7 +116,10 @@ public class Game {
         return game;
     }
 
-    
+    /**
+     * Configura el laberinto añadiendo bloques de obstáculos y monstruos.
+     * Los monstruos se guardan en el contenedor del juego.
+     */
     private void configureLabyrinth(){
         for(int i = 0; i < NUM_MONSTERS; i++){
             Monster monster = new Monster("Monster"+i, Dice.randomIntelligence(), Dice.randomStrength()); 
@@ -134,6 +141,10 @@ public class Game {
         labyrinth.addBlock(Orientation.VERTICAL, 9, 8, 1);
     }
     
+    /**
+     * Actualiza los valores de currentPlayerIndex y currentPlayer con el turno pasando 
+     * al siguiente jugador.
+     */
     private void nextPlayer(){
         if (currentPlayerIndex == players.size()-1){
             currentPlayerIndex = 0; 
@@ -145,6 +156,11 @@ public class Game {
         }   
     }
     
+    /**
+     * 
+     * @param preferredDirection
+     * @return 
+     */
     private Directions actualDirection(Directions preferredDirection){
         
         int currentRow = currentPlayer.getRow();
