@@ -62,6 +62,14 @@ public class Game {
         return labyrinth.haveAWinner(); 
     }
     
+    /**
+     * Gestiona los turnos de la partida: comprueba si el jugador esta muerto, 
+     * mueve el jugador en el laberinto si es posible, comprueba si hay un combate,
+     * pregunta si se ha llegado al final de la partida y pasa de turno. 
+     * 
+     * @param peferredDirection direccion a la que se quiere mover el jugador.
+     * @return true si finaliza el juego.
+     */
     public boolean nextStep(Directions peferredDirection){
         //Reseteamos log
         log = "";
@@ -157,9 +165,10 @@ public class Game {
     }
     
     /**
-     * 
-     * @param preferredDirection
-     * @return 
+     * Mueve al jugador a preferredDirection si es posible. Se movera a otra casilla
+     * si preferredDirection no es valida.
+     * @param preferredDirection direccion a la que se quiere mover el jugador.
+     * @return direccion a la que se mueve el jugador
      */
     private Directions actualDirection(Directions preferredDirection){
         
@@ -198,6 +207,11 @@ public class Game {
         return winner;
     }
     
+    /**
+     * Gestiona las recompensas de ganar un combate. Actualiza el log con el 
+     * ganador del combate (monstruo o jugador).
+     * @param winner ganador del combate (monstruo o jugador).
+     */
     private void manageReward(GameCharacter winner){
         if(winner == GameCharacter.PLAYER){
             currentPlayer.receivedReward();
@@ -206,6 +220,10 @@ public class Game {
         else logMonsterWon();
     }
     
+    /**
+     * Maneja la resurrecion del jugador. Se decide con los resultados del dado.
+     * Se aniade a log si el jugador resucita o no. Si no resucita, logPlayerSkipTurn().
+     */
     private void manageResurrection(){
         boolean resurrect = Dice.resurrectPlayer();
         

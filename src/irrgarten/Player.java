@@ -114,10 +114,12 @@ public class Player {
     }
     
     /**
-     * 
-     * @param direction
-     * @param validMoves
-     * @return 
+     * Comprueba si la direccion a la que se quiere mover al jugador es valida o no. 
+     * Si es valida, la devuelve. Si no es valida, devuelve la primera direccion de
+     * validMoves. 
+     * @param direction direccion a la que se quiere mover el jugador.
+     * @param validMoves conjunto de movimientos validos
+     * @return la direccion a la que se movera el jugador
      */
     public Directions move(Directions direction, ArrayList<Directions> validMoves){
         
@@ -149,6 +151,11 @@ public class Player {
         return manageHit(receivedAttack); 
     }
     
+    /**
+     * Gestiona la recompensa: crea y guarda armas escudos determinadas por el dado 
+     * (weaponsReward() y shieldsReward()) y aumenta la salud segun los resultados del
+     * dado (healthReward()). 
+     */
     public void receivedReward(){
        
         int wReward = Dice.weaponsReward(); 
@@ -177,6 +184,10 @@ public class Player {
         return name + "[I:" + intelligence + ", S:" + strength + ", H" + health + ", Pos:" + row + "," + col + ", Hits:" + consecutiveHits + ", W:" + weapons.size() + ", S:" + shields.size() + "]"; 
     }
     
+    /**
+     * Actualiza las armas de un jugador descartando las necesarias y añadiendo w si cabe.
+     * @param w el arma que se aniade.
+     */
     private void receivedWeapon(Weapon w){
         //Recorrido del inicio al final
         /*for(int i = 0; i < weapons.size(); ++i){
@@ -216,6 +227,10 @@ public class Player {
         }
     }
     
+    /**
+     * Actualiza los escudos de un jugador descartando los necesarias y añadiendo s si cabe.
+     * @param s el escudo que se quiere aniadir. 
+     */
     private void receivedShield(Shield s){ 
                
         for(int i = shields.size()-1; i >= 0; --i){
@@ -283,9 +298,9 @@ public class Player {
     }
     
     /**
-     * ó
-     * @param recivedAttack
-     * @return 
+     * Gestiona los ataques recibidos.
+     * @param recivedAttack la instensidad del ataque recibido.
+     * @return true si el jugador ha muerto o llega al max de ataques consecutivos HIT2LOSE.
      */
     private boolean manageHit(float recivedAttack){
         float defense = defensiveEnergy(); 
