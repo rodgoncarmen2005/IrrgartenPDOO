@@ -23,7 +23,7 @@ public class Game {
     
     private static final int COLUMNS = 10; //(Columnas del laberinto)
     
-    private static final int NUM_MONSTERS = 2; //(Numero de monstruos del juego)
+    private static final int NUM_MONSTERS = 6; //(Numero de monstruos del juego)
     
     private static final int NUM_BLOCKS = 2; //(Numero de obstaculos del juego)
     

@@ -11,7 +11,7 @@ public class Player {
     
     private static final int MAX_SHIELDS = 3; //(max escudos por jugador)
     
-    private static final int INITIAL_HEALTH = 10; //(salud inicial del jugador)
+    private static final int INITIAL_HEALTH = 3; //(salud inicial del jugador)
     
     private static final int HITS2LOSE = 3; //(num de golpes que puede recibir antes de morir)
     
@@ -62,12 +62,10 @@ public class Player {
      * consecutivos y elimina las armas y escudos.
      */
     public void resurrect(){
-        if (Dice.resurrectPlayer()){
-            weapons.clear();
-            shields.clear();
-            health = INITIAL_HEALTH; 
-            resetHits(); 
-        }
+        weapons.clear();
+        shields.clear();
+        health = INITIAL_HEALTH; 
+        resetHits(); 
     }
     
     /**
