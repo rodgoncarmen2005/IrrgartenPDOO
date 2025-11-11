@@ -23,7 +23,7 @@ public class Game {
     
     private static final int COLUMNS = 10; //(Columnas del laberinto)
     
-    private static final int NUM_MONSTERS = 6; //(Numero de monstruos del juego)
+    private static final int NUM_MONSTERS = 4; //(Numero de monstruos del juego)
     
     private static final int NUM_BLOCKS = 2; //(Numero de obstaculos del juego)
     
@@ -134,17 +134,7 @@ public class Game {
             monsters.add(monster); 
             labyrinth.addMonster(Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), monster); 
         }
-        
-        //Configuramos las paredes del laberinto
-        /*labyrinth.addBlock(Orientation.HORIZONTAL, 0, 0, COLUMNS);
-        labyrinth.addBlock(Orientation.HORIZONTAL, ROWS-1, 0, COLUMNS);
-        labyrinth.addBlock(Orientation.VERTICAL, 0, 0, ROWS);
-        labyrinth.addBlock(Orientation.VERTICAL, 0, COLUMNS-1, ROWS);*/
-        
-        //PREFIJADO
-        /*for(int i = 0; i < NUM_BLOCKS; i++){
-            labyrinth.addBlock(Dice.randomOrientation(), Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), 2);//REVISAR EL LARGO
-        }*/
+
         labyrinth.addBlock(Orientation.HORIZONTAL, 5, 4, 2);
         labyrinth.addBlock(Orientation.VERTICAL, 9, 8, 1);
     }
@@ -180,6 +170,12 @@ public class Game {
         return currentPlayer.move(preferredDirection, validMoves);         
     }
     
+    /**
+     * Gestiona los combates. Se producen ataques y defensas por rondas con un max de 
+     * MAX_ROUNDS. 
+     * @param monster el monstruo que interviene en el combate.
+     * @return ganador del combate.
+     */
     private GameCharacter combat(Monster monster){
         
         int rounds = 0; 
