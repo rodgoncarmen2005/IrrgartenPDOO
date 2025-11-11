@@ -81,6 +81,6 @@ public class Monster {
      */
     @Override
     public String toString(){
-        return "Monstruo[Nombre: " + name+ ", Inteligencia; " + intelligence +", Fuerza: " + strength + " Salud: " + health + " Pos:(" + row + "," + col + ")]";
+        return "Monstruo[Nombre: " + name+ ", Inteligencia; " + intelligence +", Fuerza: " + strength + " Salud: " + health + " Dead: " + dead() +  " Pos:(" + row + "," + col + ")]";
     }
 }
