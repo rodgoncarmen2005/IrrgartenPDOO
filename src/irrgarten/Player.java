@@ -179,7 +179,23 @@ public class Player {
      */
     @Override
     public String toString(){
-        return name + "[I:" + intelligence + ", S:" + strength + ", H" + health + ", Pos:" + row + "," + col + ", Hits:" + consecutiveHits + ", W:" + weapons.size() + ", S:" + shields.size() + "]"; 
+        String s = name + "[I:" + intelligence + ", S:" + strength + ", H" + health + ", Pos:" + row + "," + col + ", Hits:" + consecutiveHits + "\n"; 
+        
+        // Weapons
+        s += "\tWeapons: [";
+        for(Weapon w : weapons) {
+            s += w.toString() + " ";
+        }
+        s += "]\n";
+        
+        //Shields
+        s += "\tShields: ["; 
+        for(Shield sh : shields) {
+            s += sh.toString() + " ";
+        }
+        s += "]";
+        
+        return s; 
     }
     
     /**

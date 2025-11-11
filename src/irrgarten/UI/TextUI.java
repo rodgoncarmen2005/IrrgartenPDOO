@@ -57,9 +57,11 @@ public class TextUI {
         System.out.print(gameState.getMonsters() + "\n");
         System.out.print(gameState.getLabyrinth() + "\n");
         System.out.print(gameState.getLog() + "\n");
-                
-        if (gameState.getWinner()) System.out.print("Winner: Player " + gameState.getCurrentPlayer() + "\n");
-        else System.out.print("Current player: " + gameState.getCurrentPlayer() + "\n");
-        
+
+        if (gameState.getWinner()) {
+            System.out.print("Winner: Player " + gameState.getCurrentPlayer() + "\n");
+        }else{
+            System.out.print("Current player: " + gameState.getCurrentPlayer() + "\n");
+        }
     }  
 }

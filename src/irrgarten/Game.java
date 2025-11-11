@@ -238,42 +238,42 @@ public class Game {
      * Se añade a log el jugador ganador del combate.
      */
     private void logPlayerWon(){
-          log.concat("Winner: player " + currentPlayerIndex + "\n"); 
+          log += "Winner: player " + currentPlayerIndex + "\n"; 
     }
     
     /**
      * Se añade a log el monstruo ganador del combate.
      */
     private void logMonsterWon(){
-           log.concat("Winner: monster" + "\n");
+           log += "Winner: monster" + "\n";
     }
     
     /**
      * Se añade a log que el jugador actual ha resucitado.
      */
     private void logResurrected(){
-            log.concat("Resurrected: player " + currentPlayerIndex+ "\n");
+            log += "Resurrected: player " + currentPlayerIndex+ "\n";
     }
     
     /**
      * Se añade a log que el jugador a perdido su turno debido a que estaba muerto.
      */
     private void logPlayerSkipTurn(){
-            log.concat("Player " + currentPlayerIndex + "skipped turn due to death" + "\n"); 
+            log += "Player " + currentPlayerIndex + " skipped turn due to death" + "\n"; 
     }
     
     /**
      * Se añade a log que el jugador ha intentado un accion no permitida.
      */
     private void logPlayerNoOrders(){
-            log.concat("The instruction for player" + currentPlayerIndex + "could not be followed." + "\n"); 
+            log += "The instruction for player" + currentPlayerIndex + " could not be followed." + "\n"; 
     }
     
     /**
      * Se añade a log que el jugador se ha movido a una casilla vacia o no ha sido posible moverse.
      */
     private void logNoMonster(){
-            log.concat("Player " + currentPlayerIndex + "moved to an empty square or it was not possible to move.");
+            log += "Player " + currentPlayerIndex + " moved to an empty square or it was not possible to move.";
     }
     
     /**
@@ -282,9 +282,7 @@ public class Game {
      * @param max max numero de rondas permitidas en un combate.
      */
     private void logRounds(int rounds, int max){
-            log.concat("Round " + rounds + "out of " + max + "\n"); 
+            log += "Round " + rounds + " out of " + max + "\n"; 
     }
-    
-    
     
 }
