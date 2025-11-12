@@ -134,9 +134,15 @@ public class Game {
             monsters.add(monster); 
             labyrinth.addMonster(Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), monster); 
         }
-
+        /*
         labyrinth.addBlock(Orientation.HORIZONTAL, 5, 4, 2);
-        labyrinth.addBlock(Orientation.VERTICAL, 9, 8, 1);
+        labyrinth.addBlock(Orientation.VERTICAL, 9, 8, 1);*/
+        for(int i = 0; i < NUM_BLOCKS; i++){
+            if (i%2 == 0)
+                labyrinth.addBlock(Orientation.VERTICAL, Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), 4); 
+            else
+                labyrinth.addBlock(Orientation.HORIZONTAL, Dice.randomPos(ROWS), Dice.randomPos(COLUMNS), 4);
+            }
     }
     
     /**

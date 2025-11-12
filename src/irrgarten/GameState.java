@@ -23,11 +23,6 @@ public class GameState {
     
 
     /**
-    * @return The method `getLabyrinth` is returning the `labyrinth` attribute of the current object,
-    * which is likely a String representing a labyrinth.
-    */
-
-    /**
      * @return The method `getLabyrinth` is returning the `labyrinth` attribute of the current object.
      */
     public String getLabyrinth(){

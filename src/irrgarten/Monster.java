@@ -41,6 +41,16 @@ public class Monster {
     }   
 
 
+    /**
+     * The defend function checks if the character is dead, calculates defense based on intelligence, and
+     * updates the character's status accordingly.
+     * 
+     * @param receivedAttack The `receivedAttack` parameter represents the amount of damage the entity
+     * has received from an attack. The method calculates the defense based on the entity's intelligence
+     * level and determines if the entity is dead
+     * @return The method `defend` returns a boolean value indicating whether the character is dead after
+     * defending against a received attack.
+     */
     public boolean defend(float receivedAttack){
         boolean isDead;
         if(this.dead()){
