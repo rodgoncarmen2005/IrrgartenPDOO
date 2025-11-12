@@ -2,6 +2,7 @@
 package irrgarten;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Dice {
     private static final int MAX_USES = 5; //(número máximo de usos de armas y escudos)
@@ -136,6 +137,14 @@ public class Dice {
         //Debe ser un float para que no haya division entera
         return generator.nextFloat() >= (usesLeft*1.0f/MAX_USES); 
     } 
+    
+    public static Directions nextStep(Directions preference, ArrayList<Directions> validMoves, float intelligence){
+        Directions dir = preference;
+        if(generator.nextFloat() > intelligence){
+            dir = validMoves.get(generator.nextInt(validMoves.size())); 
+        }
+        return dir; 
+    }
 }
 
 
