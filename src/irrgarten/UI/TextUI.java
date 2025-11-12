@@ -61,6 +61,7 @@ public class TextUI {
         if (gameState.getWinner()) {
             System.out.print("Winner: Player " + gameState.getCurrentPlayer() + "\n");
         }else{
+            System.out.print("--------------------------------------- \n"); //Separador de turnos
             System.out.print("Current player: " + gameState.getCurrentPlayer() + "\n");
         }
     }  
