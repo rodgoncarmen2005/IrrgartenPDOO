@@ -138,6 +138,14 @@ public class Dice {
         return generator.nextFloat() >= (usesLeft*1.0f/MAX_USES); 
     } 
     
+    /**
+     * Indica la direccion de movimiento preferente con una propabilidad proporcional al nivel de inteligencia.
+     * En caso de que no sea igual a preference, se elegira una aleatoria de validMoves.
+     * @param preference direccion de movimiento preferida
+     * @param validMoves array de las direccioness validas
+     * @param intelligence nivel de inteligencia
+     * @return direccion de movimiento elegida 
+     */
     public static Directions nextStep(Directions preference, ArrayList<Directions> validMoves, float intelligence){
         Directions dir = preference;
         if(generator.nextFloat() > intelligence){
