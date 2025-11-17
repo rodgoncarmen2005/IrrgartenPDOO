@@ -5,7 +5,7 @@ import java.util.ArrayList; //https://docs.oracle.com/javase/8/docs/api/java/uti
 //import java.util.Iterator; Para usar iteradores en receivedWeapon(Weapon w)
 
 
-public class Player {
+public class Player extends LabyrinthCharacter {
     
     private static final int MAX_WEAPONS = 2; //(max armas por jugador)
     
@@ -35,7 +35,9 @@ public class Player {
     
     private ArrayList<Shield> shields; //Relacion con Shield (array de los escudos)
     
+    private WeaponCardDeck weaponCardDeck;
     
+    private ShieldCardDeck shieldCardDeck;
     /**
      * Constructor de la clase Player. Se inicializa con una posicion (-1,-1) en el tablero.
      * Actualmente no tiene armas ni escudos.
@@ -45,7 +47,7 @@ public class Player {
      */
     public Player(char number, float intelligence, float strength){
         
-        name = "Player#" + number; 
+        super("Player " + number,intelligence, strength, INITIAL_HEALTH);
         this.number = number; 
         this.intelligence = intelligence; 
         this.strength = strength; 
@@ -68,22 +70,6 @@ public class Player {
         resetHits(); 
     }
     
-    /**
-     * Getter de la fila en la que se encuentra posicionado el jugador.
-     * @return fila de la posición del jugador.
-     */
-    public int getRow(){
-        return row; 
-    }
-    
-    /**
-     * Getter de la columna en la que se encuentra posicionado el jugador.
-     * @return columna de la posicion del jugador.
-     */
-    public int getCol(){
-        return col; 
-        
-    }
     
     /**
      * Getter del numero identificador del jugador.
@@ -93,23 +79,6 @@ public class Player {
         return number; 
     }
     
-    /**
-     * Setter de la posición del jugador en el laberinto.
-     * @param row fila dentro de la posicion.
-     * @param col columna dentro de la posicion.
-     */
-    public void setPos(int row, int col){
-       this.row = row; 
-       this.col = col; 
-    }
-    
-    /**
-     * Indica si el jugador esta muerto.
-     * @return true si el jugador esta muerto.
-     */
-    public boolean dead(){
-       return health <= 0; 
-    }
     
     /**
      * Comprueba si la direccion a la que se quiere mover al jugador es valida o no. 
@@ -136,6 +105,7 @@ public class Player {
      * Ataque del jugador: fuerza + suma de la potencia de las armas.
      * @return valor correspondiente al ataque.
      */
+    @Override
     public float attack(){
         return strength + sumWeapons(); 
     }    
@@ -145,6 +115,7 @@ public class Player {
      * @param receivedAttack ataque recibido del monstruo.
      * @return true si se defiende del ataque.
      */
+    @Override
     public boolean defend(float receivedAttack){
         return manageHit(receivedAttack); 
     }
@@ -173,30 +144,6 @@ public class Player {
         health += extraHealth;
     }
     
-    /**
-     * Representacion del estado completo del jugador en una cadena.
-     * @return cadena con el estado del jugador.
-     */
-    @Override
-    public String toString(){
-        String s = name + "[I:" + intelligence + ", S:" + strength + ", H" + health + ", Pos:" + row + "," + col + ", Hits:" + consecutiveHits + "\n"; 
-        
-        // Weapons
-        s += "\tWeapons: [";
-        for(Weapon w : weapons) {
-            s += w.toString() + " ";
-        }
-        s += "]\n";
-        
-        //Shields
-        s += "\tShields: ["; 
-        for(Shield sh : shields) {
-            s += sh.toString() + " ";
-        }
-        s += "]";
-        
-        return s; 
-    }
     
     /**
      * Actualiza las armas de un jugador descartando las necesarias y añadiendo w si cabe.
@@ -283,7 +230,7 @@ public class Player {
      * Attack de todas las armas del jugador. 
      * @return suma del resultado del metodo attack de todas las armas
      */
-    private float sumWeapons(){
+    protected float sumWeapons(){
         float sum = 0.0f;
         for(int i = 0; i < weapons.size(); ++i){
             sum += weapons.get(i).attack(); 
@@ -295,7 +242,7 @@ public class Player {
      * Protect de todos los escudos.
      * @return suma del resultado de llamar al método protect de todos sus escudos.
      */
-    private float sumShields(){
+    protected float sumShields(){
         float sum = 0.0f; 
         for (int i = 0; i < shields.size(); ++i){
             sum += shields.get(i).protect(); 
@@ -307,7 +254,7 @@ public class Player {
      * Defensa total del jugador como su inteligencia + proteccion de sus escudos.
      * @return suma de inteligencia + proteccion de sus escudos. 
      */
-    private float defensiveEnergy(){
+    protected float defensiveEnergy(){
         return intelligence + sumShields(); 
     }
     
@@ -341,12 +288,6 @@ public class Player {
         consecutiveHits = 0; 
     }
     
-    /**
-     * Decrementa la salud en una unidad por herida.
-     */
-    private void gotWounded(){
-        health--; 
-    }
     
     /**
      * Incrementa en una unidad el contador de impactos consecutivos.

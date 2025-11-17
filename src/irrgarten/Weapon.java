@@ -1,7 +1,7 @@
 
 package irrgarten;
 
-public class Weapon {
+public class Weapon extends CombatElement {
     private float power;
     private int uses;
     
@@ -10,8 +10,7 @@ public class Weapon {
     // variables `power` and `uses` of the `Weapon` object being created using the `this` keyword. This
     // constructor is used to initialize a new `Weapon` object with the specified power and number of uses.
     public Weapon (float power, int uses) {
-        this.power = power; 
-        this.uses = uses;
+        super(power, uses);
     }
     
     /**

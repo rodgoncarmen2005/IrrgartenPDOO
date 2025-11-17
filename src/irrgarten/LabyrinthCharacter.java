@@ -1,6 +1,6 @@
 package irrgarten;
 
-public class LabyrinthCharacter {
+abstract class LabyrinthCharacter {
     
     private String name; //(nombre del personaje)
     
@@ -118,8 +118,8 @@ public class LabyrinthCharacter {
      */
     @Override
     public String toString(){
-        //String s = name + "[I:" + intelligence + ", S:" + strength + ", H" + health + ", Pos:" + row + "," + col + "\n"; ????
-        
+        String s = name + "[I:" + intelligence + ", S:" + strength + ", H" + health + ", Pos:" + row + "," + col + "\n";
+        return s;
     }
     
     /**
@@ -129,11 +129,8 @@ public class LabyrinthCharacter {
         health--; 
     }
     
-    public float attack(){
-        
-    }
+    public abstract float attack();
     
-    public boolean defend(float attack){
-        
-    }
+    public abstract boolean defend(float attack);
+
 }

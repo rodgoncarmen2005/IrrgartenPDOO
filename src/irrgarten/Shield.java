@@ -1,7 +1,7 @@
 
 package irrgarten;
 
-public class Shield {
+public class Shield extends CombatElement{
     private float protection;
     private int uses;
     
@@ -10,8 +10,7 @@ public class Shield {
     // `float` and `uses` of type `int`, and initializes the `protection` and `uses` instance variables of
     // the `Shield` object with the values passed as arguments to the constructor.
     public Shield (float protection, int uses) {
-        this.protection = protection; 
-        this.uses = uses;
+        super(protection, uses);
     }
     
     /**
