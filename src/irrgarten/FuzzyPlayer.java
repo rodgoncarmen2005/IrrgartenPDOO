@@ -12,11 +12,11 @@ public class FuzzyPlayer extends Player{
     
     /**
      * 
-     * @param directiion
+     * @param direction
      * @param validMoves
      * @return 
      */
-    public Directions move(Directions directiion, Directions[] validMoves){
+    public Directions move(Directions direction, Directions[] validMoves){
         
     }
     
