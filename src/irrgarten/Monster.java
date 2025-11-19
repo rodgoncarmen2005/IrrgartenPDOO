@@ -4,12 +4,12 @@ package irrgarten;
 
 public class Monster extends LabyrinthCharacter {
     private static final int INITIAL_HEALTH = 5;
-    private String name;
-    private float intelligence;
-    private float strength;
-    private float health;
-    private int row;
-    private int col;
+    //private String name;
+    //private float intelligence;
+    //private float strength;
+    //private float health;
+    //private int row;
+    //private int col;
     
 
     // This part of the code is the constructor of the `Monster` class in Java. When a new `Monster` object
@@ -25,7 +25,7 @@ public class Monster extends LabyrinthCharacter {
      */
     @Override
     public float attack(){
-        return Dice.intensity(strength);
+        return Dice.intensity(getStrength());
     }   
 
 
@@ -45,7 +45,7 @@ public class Monster extends LabyrinthCharacter {
         if(this.dead()){
             return true;
         }else{
-            float defensa = Dice.intensity(intelligence);
+            float defensa = Dice.intensity(getIntelligence());
             if (defensa < receivedAttack){
                 this.gotWounded();
             }

@@ -70,7 +70,7 @@ public class Player extends LabyrinthCharacter {
     public void resurrect(){
         weapons.clear();
         shields.clear();
-        health = INITIAL_HEALTH; 
+        super.setHealth(INITIAL_HEALTH);
         resetHits(); 
     }
     
@@ -148,8 +148,12 @@ public class Player extends LabyrinthCharacter {
         setHealth(getHealth() + extraHealth);
     }
     
+    /**
+     * Representacion del estado completo del jugador en una cadena.
+     * @return cadena con el estado del jugador.
+     */
     @Override
-    public String toString(){//CAMBIAR
+    public String toString(){
         //String s = name + "[I:" + intelligence + ", S:" + strength + ", H" + health + ", Pos:" + row + "," + col + ", Hits:" + consecutiveHits + "\n"; 
         String s = super.toString();
         
@@ -276,7 +280,7 @@ public class Player extends LabyrinthCharacter {
         }
         else resetHits(); 
         
-        if ((consecutiveHits == HITS2LOSE) || (dead())){ //SE PUEDE LLAMAR DIRECTAMENTE A HITS2LOSE AUN SIENDO DE CLASE??
+        if ((consecutiveHits == HITS2LOSE) || (dead())){ 
             resetHits(); 
             lose = true; 
         }

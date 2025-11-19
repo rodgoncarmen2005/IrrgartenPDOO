@@ -1,51 +1,58 @@
 package irrgarten;
 
+import java.util.ArrayList;
+
 public class FuzzyPlayer extends Player{
     
     /**
-     * Constructor de la clase FuzzyPlayer. 
-     * @param other 
+     * Constructor de la clase FuzzyPlayer. Llama al mismo metodo de su superclase. 
+     * @param other instancia FuzzyPlayer que se va a copiar. 
      */
     public FuzzyPlayer(Player other){
-        
+        super(other); 
     }
     
+     //REVISAR   
     /**
-     * 
-     * @param direction
-     * @param validMoves
-     * @return 
-     */
-    public Directions move(Directions direction, Directions[] validMoves){
-        
-    }
-    
-    /**
-     * 
-     * @return 
+     * Devuelve una direccion basada en: la dirección que devuelve move de Player pasada
+     * al metodo de Dice::nextStep.     
+     * @param direction direccion de movimiento preferida
+     * @param validMoves array de las direccioness validas
+     * @return direccion de movimiento elegida
      */
     @Override
-    public float attack(){
-        return sumWeapons() + Dice.intensity(strength); //Getter de strength??
+    public Directions move(Directions direction, ArrayList<Directions> validMoves){
+        Directions dir = super.move(direction, validMoves); 
+        dir = Dice.nextStep(dir, validMoves, this.getIntelligence()); 
+        return dir; 
     }
     
     /**
-     * 
-     * @return 
+     * Ataque del jugador fuzzy: intensidad segun Dice + suma de la potencia de las armas.
+     * @return valor correspondiente al ataque.
      */
-    //@Override???
-    protected float defensiveEnergy(){
-        return sumShields() + Dice.intensity(intelligence); //Getter de intelligence??
+    @Override
+    public float attack(){ //IMPLEMENTACION DISTINTA DE PLAYER
+        return sumWeapons() + Dice.intensity(this.getStrength()); 
     }
     
     /**
-     * 
-     * @return 
+     * Defensa total del jugador como su intensidad segun Dice + proteccion de sus escudos.
+     * @return suma de inteligencia + proteccion de sus escudos. 
+     */
+    @Override
+    protected float defensiveEnergy(){//IMPLEMENTACION DISTINTA DE PLAYER
+        return sumShields() + Dice.intensity(this.getIntelligence()); 
+    }
+    
+    /**
+     * Representacion del estado completo del FuzzyPLayer en una cadena.
+     * @return cadena con el estado del FuzzyPLayer.
      */
     @Override
     public String toString(){
         String s = "Fuzzy "; 
-        s += super.toString();//????
+        s += super.toString();
         return s; 
     }
 }

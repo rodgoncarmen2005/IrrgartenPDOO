@@ -1,0 +1,62 @@
+[33m14fe366[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m HEAD@{0}: commit: Revert "Codigo 1 de clase 19-nov"
+[33ma392f41[m HEAD@{1}: commit: Revert "Revert "Codigo 1 de clase 19-nov""
+[33m71be231[m HEAD@{2}: commit: Revert "Codigo 1 de clase 19-nov"
+[33m24485ce[m HEAD@{3}: rebase finished: returning to refs/heads/master
+[33m24485ce[m HEAD@{4}: rebase: Codigo 1 de clase 19-nov
+[33ma113753[m HEAD@{5}: rebase: Codigo 1 de clase 19-nov
+[33mfb54457[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{6}: checkout: moving from master to fb544578fe1a9866468ef8276ffe04f75949d426
+[33m5d81f53[m HEAD@{7}: commit: Codigo 1 de clase 19-nov
+[33m9ab1c1c[m HEAD@{8}: commit: Codigo 1 de clase 19-nov
+[33m2ec28bb[m HEAD@{9}: commit: Codigo con notas de clase 19-nov
+[33me61b16b[m HEAD@{10}: merge origin/master: Fast-forward
+[33m0293021[m HEAD@{11}: merge origin/master: Fast-forward
+[33mece02ca[m HEAD@{12}: commit: Segundo codigo de la practica 4 (no compila)
+[33m2a0055b[m HEAD@{13}: commit: Primer codigo de la practica 4 (no compila)
+[33m84bb0eb[m HEAD@{14}: merge origin/master: Merge made by recursive.
+[33m71181f0[m HEAD@{15}: commit: Inicio Practica 4
+[33m34bb747[m HEAD@{16}: commit: Terminado
+[33m7a18487[m HEAD@{17}: commit: Terminado
+[33m1de3e8e[m HEAD@{18}: merge origin/master: Fast-forward
+[33m9a2d96d[m HEAD@{19}: commit: Dead en el monstruo
+[33md1af7ab[m HEAD@{20}: commit: Comprobacion final
+[33ma65f814[m HEAD@{21}: commit: Armas y escudos por pantalla
+[33mb075481[m HEAD@{22}: merge origin/master: Fast-forward
+[33m08c58d2[m HEAD@{23}: commit: Documentacion hecha
+[33mc8eeecd[m HEAD@{24}: commit: Documentacion hecha
+[33m33e52a4[m HEAD@{25}: commit: Documentacion hecha
+[33ma81464e[m HEAD@{26}: commit: Documentacion hecha
+[33md020c27[m HEAD@{27}: commit: Se mueve
+[33m8a987ef[m HEAD@{28}: commit: Practica 3 
+[33ma46e7f6[m HEAD@{29}: merge origin/master: Fast-forward
+[33md87360e[m HEAD@{30}: commit: Practica 3 terminada
+[33m66aaf09[m HEAD@{31}: rebase finished: returning to refs/heads/master
+[33m66aaf09[m HEAD@{32}: rebase: Practica 3 en proceso
+[33mfcc4744[m HEAD@{33}: rebase: Practica 3 completa
+[33m7b8134a[m HEAD@{34}: checkout: moving from master to 7b8134a2f2f531231a5e6015e625d73515fb8d95
+[33mde6d01c[m HEAD@{35}: commit: Practica 3 en proceso
+[33m8450d65[m HEAD@{36}: commit: Practica 3 completa
+[33m20fd185[m HEAD@{37}: merge origin/master: Fast-forward
+[33m335b067[m HEAD@{38}: commit: Practica 3 completa
+[33m2485c52[m HEAD@{39}: commit: Practica 2 completa con error en output
+[33m0b9773e[m HEAD@{40}: commit: Practica 2 completa con error en output
+[33mb206139[m HEAD@{41}: merge origin/master: Fast-forward
+[33mf1c2ccd[m HEAD@{42}: commit: Practica 2 en la primera clase
+[33m0fde3b7[m HEAD@{43}: commit: Practica 2 en la primera clase
+[33ma627635[m HEAD@{44}: merge origin/master: Merge made by recursive.
+[33m572b5ce[m HEAD@{45}: commit: Practica 2 en la primera clase
+[33m6a4cd16[m HEAD@{46}: commit: Practica 2 en la primera clase
+[33m8642b0a[m HEAD@{47}: commit: Practica 2 antes de la primera clase
+[33m8f94e3e[m HEAD@{48}: merge origin/master: Fast-forward
+[33m7b06c99[m HEAD@{49}: commit: Practica 1 completa
+[33mc99fd40[m HEAD@{50}: commit: Método discard terminado, nueva clase Dice, nueva clase pendiente de revisar TestP1 por coincidencia con Irrgarten
+[33mf1e6fe9[m HEAD@{51}: rebase finished: returning to refs/heads/master
+[33mf1e6fe9[m HEAD@{52}: rebase: Clases Prácticas.md
+[33ma7a7aa1[m HEAD@{53}: rebase: Clase 2 PDOO.md
+[33mf818912[m HEAD@{54}: rebase: Clase 24-09-2025.md
+[33m07bca9a[m HEAD@{55}: checkout: moving from master to 07bca9a23b093c6404f579079b350ab2adeb180d
+[33ma73f1c2[m HEAD@{56}: merge origin/master: Merge made by recursive.
+[33m4a9f05d[m HEAD@{57}: rebase finished: returning to refs/heads/master
+[33m4a9f05d[m HEAD@{58}: rebase: Clases Prácticas.md
+[33m4279e53[m HEAD@{59}: rebase: Clase 2 PDOO.md
+[33mfcb37ef[m HEAD@{60}: rebase: Clase 24-09-2025.md
+[33m6388f1f[m HEAD@{61}: checkout: moving from master to 6388f1fc6cb39331a65975081072c129373558d0

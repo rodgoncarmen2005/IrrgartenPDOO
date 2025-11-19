@@ -26,7 +26,8 @@ abstract class LabyrinthCharacter {
         this.intelligence = intelligence; 
         this.strength = strength; 
         this.health = health; 
-        //Posicion invalida en el tablero
+        
+    //Posicion invalida en el tablero
         row = -1; 
         col= -1; 
     }
