@@ -20,25 +20,9 @@ public class Shield extends CombatElement{
      * `salida`.
      */    
     public float protect (){
-        float salida = 0.0f; //HAY QUE DEJAR ESTA IMPLEMENTACION??
-        
-        if(uses > 0){
-            salida = protection;
-            uses--;
-        }
-        
-        return salida;
+        return this.produceEffect();
     }
     
-    /**
-
-     * @return The `discard()` method is returning a boolean value, which is the result of calling the
-     * `discardElement()` method from the `Dice` class with the `uses` parameter.
-     */
-    public boolean discard(){
-        return Dice.discardElement(uses);//HAY QUE DEJAR ESTA IMPLEMENTACION??
-    }
-        
 
     /**
      * @return The `toString` method is returning a string representation of an object of type `S`, which
@@ -46,6 +30,6 @@ public class Shield extends CombatElement{
      */
     @Override
     public String toString () {
-        return "S[" + protection + "," + uses + "]";
+        return "S" + super.toString();
     }    
 }

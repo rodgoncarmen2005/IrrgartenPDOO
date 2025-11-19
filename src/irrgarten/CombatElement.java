@@ -22,12 +22,12 @@ abstract class CombatElement {
      */
     protected float produceEffect(){
 
-        float salida = 0.0f;
+        float output = 0.0f;
         if(uses > 0){
             uses--;
-            salida = effect;
+            output = effect;
         }
-        return salida;
+        return output;
     }
     
     /**
@@ -47,7 +47,8 @@ abstract class CombatElement {
      * 
      * @return A string representation of a Combat Element object, including its effect and uses.
      */
-    public String to_string(){
-        return "Combat Element[Effect: " + effect + ", Uses: " + uses + "]";
+    @Override
+    public String toString(){
+        return "[Effect: " + effect + ", Uses: " + uses + "]";
     }
 }
