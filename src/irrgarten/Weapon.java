@@ -2,7 +2,7 @@
 package irrgarten;
 
 public class Weapon extends CombatElement {
-    private float power;
+    private float power; //HAY QUE QUITARLO??
     private int uses;
     
     // This is a constructor for the `Weapon` class in Java. It takes two parameters, `power` of type float
@@ -18,7 +18,7 @@ public class Weapon extends CombatElement {
      * greater than 0, or 0.0 if `uses` is 0.
      */
     public float attack (){
-        float salida = 0.0f;
+        float salida = 0.0f; //HAY QUE DEJAR ESTA IMPLEMENTACION??
         
         if(uses > 0){
             salida = power;
@@ -34,7 +34,7 @@ public class Weapon extends CombatElement {
      * from a collection and returns a boolean indicating whether the operation was successful.
      */
     public boolean discard(){
-        return Dice.discardElement(uses);
+        return Dice.discardElement(uses);//HAY QUE DEJAR ESTA IMPLEMENTACION??
     }
     
         
@@ -47,7 +47,7 @@ public class Weapon extends CombatElement {
      * a comma.
      */
     @Override
-    public String toString () {
+    public String toString () {//SUPER TOSTRING
         return "W[" + power + "," + uses + "]";
     }
     

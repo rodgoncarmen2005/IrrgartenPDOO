@@ -2,7 +2,7 @@
 package irrgarten;
 
 public class Shield extends CombatElement{
-    private float protection;
+    private float protection; //HAY QUE BORRARLO?
     private int uses;
     
 
@@ -20,7 +20,7 @@ public class Shield extends CombatElement{
      * `salida`.
      */    
     public float protect (){
-        float salida = 0.0f;
+        float salida = 0.0f; //HAY QUE DEJAR ESTA IMPLEMENTACION??
         
         if(uses > 0){
             salida = protection;
@@ -36,7 +36,7 @@ public class Shield extends CombatElement{
      * `discardElement()` method from the `Dice` class with the `uses` parameter.
      */
     public boolean discard(){
-        return Dice.discardElement(uses);
+        return Dice.discardElement(uses);//HAY QUE DEJAR ESTA IMPLEMENTACION??
     }
         
 
