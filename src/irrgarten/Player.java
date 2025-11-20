@@ -15,19 +15,19 @@ public class Player extends LabyrinthCharacter {
     
     private static final int HITS2LOSE = 3; //(num de golpes que puede recibir antes de morir)
     
-    private String name; //(nombre del jugador)
+    //private String name; //(nombre del jugador)
     
     private char number; //(numero identificador del jugador)
     
-    private float intelligence; //(inteligencia actual del jugador)
+    //private float intelligence; //(inteligencia actual del jugador)
     
-    private float strength; //(fuerza actual del jugador)
+    //private float strength; //(fuerza actual del jugador)
     
-    private float health; //(salud actual del jugador)
+    //private float health; //(salud actual del jugador)
     
-    private int row; //(fila en la que se encuentra dentro del laberinto)
+    //private int row; //(fila en la que se encuentra dentro del laberinto)
     
-    private int col; //(columna en la que se encuentra dentro del laberinto)
+    //private int col; //(columna en la que se encuentra dentro del laberinto)
     
     private int consecutiveHits=0; //(num golpes consecutivos que ha recibido un jugador)
     
@@ -48,17 +48,21 @@ public class Player extends LabyrinthCharacter {
     public Player(char number, float intelligence, float strength){
         
         super("Player " + number,intelligence, strength, INITIAL_HEALTH);
-        this.number = number; 
-        this.intelligence = intelligence; 
-        this.strength = strength; 
-        health = INITIAL_HEALTH; 
-        row = -1;  
-        col = -1; 
+        this.number = number; //HAY QUE DEJARLO??
+        //this.intelligence = intelligence; 
+        //this.strength = strength; 
+        //health = INITIAL_HEALTH; 
+        //row = -1;  
+        //col = -1; 
         weapons = new ArrayList<Weapon>(); 
         shields = new ArrayList<Shield>(); 
       
     }
     
+    public Player(Player other){
+        super(other); 
+    }
+            
     /**
      * Tareas asociadas a la resurreccion: reestablece la salud, el numero de golpes 
      * consecutivos y elimina las armas y escudos.
@@ -66,7 +70,7 @@ public class Player extends LabyrinthCharacter {
     public void resurrect(){
         weapons.clear();
         shields.clear();
-        health = INITIAL_HEALTH; 
+        super.setHealth(INITIAL_HEALTH);
         resetHits(); 
     }
     
@@ -107,7 +111,7 @@ public class Player extends LabyrinthCharacter {
      */
     @Override
     public float attack(){
-        return strength + sumWeapons(); 
+        return this.getStrength() + sumWeapons(); 
     }    
     
     /**
@@ -141,38 +145,41 @@ public class Player extends LabyrinthCharacter {
         }
         
         int extraHealth = Dice.healthReward();
-        health += extraHealth;
+        setHealth(getHealth() + extraHealth);
     }
     
+    /**
+     * Representacion del estado completo del jugador en una cadena.
+     * @return cadena con el estado del jugador.
+     */
+    @Override
+    public String toString(){
+        //String s = name + "[I:" + intelligence + ", S:" + strength + ", H" + health + ", Pos:" + row + "," + col + ", Hits:" + consecutiveHits + "\n"; 
+        String s = super.toString();
+        
+        //AÑADIDOS PARA PLAYER
+        // Weapons
+        s += "\tWeapons: [";
+        for(Weapon w : weapons) {
+            s += w.toString() + " ";
+        }
+        s += "]\n";
+        
+        //Shields
+        s += "\tShields: ["; 
+        for(Shield sh : shields) {
+            s += sh.toString() + " ";
+        }
+        s += "]";
+        
+        return s;
+    }
     
     /**
      * Actualiza las armas de un jugador descartando las necesarias y añadiendo w si cabe.
      * @param w el arma que se aniade.
      */
-    private void receivedWeapon(Weapon w){
-        //Recorrido del inicio al final
-        /*for(int i = 0; i < weapons.size(); ++i){
-            Weapon wi = weapons.get(i); 
-            boolean discard = wi.discard();
-            
-            if (discard){
-                weapons.remove(wi);
-                i--; //Para no saltarnos ningun elemento si eliminamos uno.
-            }
-        }*/
-        
-        //Usando iteradores
-        /*Iterator<Weapon> it = weapons.iterator();
-
-        while (it.hasNext()) {
-            Weapon wi = it.next();   // <- la 1ª vez devuelve el primer elemento
-
-            if (wi.discard()) {
-                it.remove();         // elimina el elemento devuelto por next()
-            }
-        }*/
-        
-        
+    private void receivedWeapon(Weapon w){        
         //Recorrido del final al inicio
         for(int i = weapons.size()-1; i >= 0; --i){
             Weapon wi = weapons.get(i); 
@@ -255,7 +262,7 @@ public class Player extends LabyrinthCharacter {
      * @return suma de inteligencia + proteccion de sus escudos. 
      */
     protected float defensiveEnergy(){
-        return intelligence + sumShields(); 
+        return getIntelligence() + sumShields(); 
     }
     
     /**
@@ -273,12 +280,12 @@ public class Player extends LabyrinthCharacter {
         }
         else resetHits(); 
         
-        if ((consecutiveHits == HITS2LOSE) || (dead())){ //SE PUEDE LLAMAR DIRECTAMENTE A HITS2LOSE AUN SIENDO DE CLASE??
+        if ((consecutiveHits == HITS2LOSE) || (dead())){ 
             resetHits(); 
             lose = true; 
         }
         
-        return lose;     
+        return lose; 
     }
     
     /**
