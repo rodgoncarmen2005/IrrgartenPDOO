@@ -18,23 +18,7 @@ public class Weapon extends CombatElement {
      * greater than 0, or 0.0 if `uses` is 0.
      */
     public float attack (){
-        float salida = 0.0f; //HAY QUE DEJAR ESTA IMPLEMENTACION??
-        
-        if(uses > 0){
-            salida = power;
-            uses--;
-        }
-        
-        return salida;
-    }
-    
-    /**
-     * @return The `discard()` method is returning the result of calling the `discardElement()` method from
-     * the `Dice` class with the `uses` parameter. The `discardElement()` method likely removes an element
-     * from a collection and returns a boolean indicating whether the operation was successful.
-     */
-    public boolean discard(){
-        return Dice.discardElement(uses);//HAY QUE DEJAR ESTA IMPLEMENTACION??
+        return this.produceEffect();
     }
     
         
@@ -48,7 +32,7 @@ public class Weapon extends CombatElement {
      */
     @Override
     public String toString () {//SUPER TOSTRING
-        return "W[" + power + "," + uses + "]";
+        return "W" + super.toString();
     }
     
 }
