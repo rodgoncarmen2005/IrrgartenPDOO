@@ -1,6 +1,6 @@
 
 package irrgarten;
-
+//COMPROBADOO
 
 public class Monster extends LabyrinthCharacter {
     private static final int INITIAL_HEALTH = 5;

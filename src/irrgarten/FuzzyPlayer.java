@@ -2,6 +2,8 @@ package irrgarten;
 
 import java.util.ArrayList;
 
+//COMPROBADOO
+
 public class FuzzyPlayer extends Player{
     
     /**
@@ -12,7 +14,6 @@ public class FuzzyPlayer extends Player{
         super(other); 
     }
     
-     //REVISAR!!!   
     /**
      * Devuelve una direccion basada en: la dirección que devuelve move de Player pasada
      * al metodo de Dice::nextStep.     
@@ -36,6 +37,7 @@ public class FuzzyPlayer extends Player{
         return sumWeapons() + Dice.intensity(this.getStrength()); 
     }
     
+    //PREGUNTAR AL PROFESOR
     /**
      * Defensa total del jugador como su intensidad segun Dice + proteccion de sus escudos.
      * @return suma de inteligencia + proteccion de sus escudos. 
