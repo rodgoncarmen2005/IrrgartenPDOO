@@ -12,7 +12,7 @@ public class FuzzyPlayer extends Player{
         super(other); 
     }
     
-     //REVISAR   
+     //REVISAR!!!   
     /**
      * Devuelve una direccion basada en: la dirección que devuelve move de Player pasada
      * al metodo de Dice::nextStep.     
