@@ -1,6 +1,12 @@
 package irrgarten;
 
-abstract class LabyrinthCharacter {
+//NO SE INSTANCIA, NUNCA NEW COMBATELEMENT
+//SI TIENE CONSTRUCTOR PORQUE HAY QUE INICIALIZAR ATRIBUTOS
+//SI SE PUEDE USAR COMO TIPO DE DATO. 
+    //P.E ARRAYLIST<COMBATELEMENT> LISTA = NEW ARRAYLIST<>(); 
+    // LISTA.ADD(NEW WEAPON(...))
+
+abstract class LabyrinthCharacter { 
     
     private String name; //(nombre del personaje)
     
@@ -130,8 +136,8 @@ abstract class LabyrinthCharacter {
         health--; 
     }
     
-    public abstract float attack();
+    public abstract float attack();  //ABSTRACTA
     
-    public abstract boolean defend(float attack);
+    public abstract boolean defend(float attack);  //ABSTRACTA
 
 }
