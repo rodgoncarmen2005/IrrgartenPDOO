@@ -76,3 +76,40 @@ Java: 21.0.4
 
 ### Ruby -> atributos
 altr_reader: nombre
+-----------------------------
+# PRÁCTICA 5
+EN GRAPHICUI
+En la pestaña de Design
+Cambiar los nombres a las variables de GraphicUI (en el navegador, esquina inferior izq). Podemos cambiarle las características en la esquina inferior derecha.
+Tipo de letra monoespaciado -> Courier.
+
+En la pestaña de Source
+Quitar el main
+en el constructor setVisible(true) al final
+
+Constructor
+initComponents();
+setVisible(true);
+cursors = new Cursors (this, true)
+
+nextmove
+return cursors.getDirection();
+
+En showGame
+laberinto.setText(gameState.getLabyrinth())
+repaint() -> Para que imprima las cosas por pantalla
+
+CUIDADO: HAY QUE ELEGIR EL TIPO DE ARCHIVO CORRECTO
+
+EN CURSORS:
+private Directions direction;
+crear consultor para el atributo direction
+constructor: super(parent.modal); initComponents(); directions= null;
+
+public Directions getDirection()
+setVisible(true); //El programa no avanza en este método hasta que el usuario de esa orden
+return direction;
+
+Pantalla de diseño:
+para programar un botón-> doble clic.
+Por ejemplo para el boton up -> direction = Direction.UP; dispose();
