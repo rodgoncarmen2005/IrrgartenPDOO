@@ -5,7 +5,7 @@ import irrgarten.controller.Controller;
 
 
 
-public class main {
+public class mainP3 {
 
     public static void main(String[] args){
             Game game = new Game(2);
