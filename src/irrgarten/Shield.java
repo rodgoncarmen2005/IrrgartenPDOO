@@ -1,9 +1,9 @@
 
 package irrgarten;
-
+//COMPROBADOOO
 public class Shield extends CombatElement{
-    private float protection; //HAY QUE BORRARLO?
-    private int uses;
+    //private float protection;
+    //private int uses;
     
 
     // This is a constructor for the `Shield` class in Java. It takes two parameters, `protection` of type

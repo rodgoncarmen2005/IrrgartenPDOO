@@ -7,7 +7,7 @@ package irrgarten;
     // LISTA.ADD(NEW WEAPON(...))
 
 abstract class LabyrinthCharacter { 
-    
+    //COMPROBADOOO
     private String name; //(nombre del personaje)
     
     private float intelligence; //(inteligencia del personaje)

@@ -2,8 +2,6 @@ package irrgarten;
 
 import java.util.ArrayList;
 
-//COMPROBADOO
-
 public class FuzzyPlayer extends Player{
     
     /**

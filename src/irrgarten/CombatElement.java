@@ -4,7 +4,7 @@ abstract class CombatElement {
     private float effect;
     private int uses;
     
-
+    
     // The constructor `public CombatElement(float effect, int uses)` is initializing the `effect` and
     // `uses` instance variables of the `CombatElement` class with the values passed as arguments to the
     // constructor. This allows an object of the `CombatElement` class to be created with specific initial

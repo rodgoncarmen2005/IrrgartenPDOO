@@ -16,7 +16,8 @@ abstract class CardDeck <T extends CombatElement> {
     
     protected static final int TAM = 20;
     
-    //CONTRUCTOR, NO PODEMOS INSTANCIAR ESTA CLASE POR SER ABSTRACT
+    //Recordar: aunque es un constructor, no podemos instanciar la clase
+    //por se abstracta
     public CardDeck(){
         cardDeck = new ArrayList<>();
     }

@@ -6,17 +6,18 @@ import irrgarten.Directions;
 public class Cursors extends javax.swing.JDialog {
     
     private Directions direction;
-    
-    public Directions getDirection() {
-        setVisible(true);   // Hace visible la ventana y bloquea la ejecución hasta que se cierre
-        return this.direction;
-    }
         
     public Cursors(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-
+    
+        
+    public Directions getDirection() {
+        setVisible(true);   // Hace visible la ventana y bloquea la ejecución hasta que se cierre
+        return this.direction;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

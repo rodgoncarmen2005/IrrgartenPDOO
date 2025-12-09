@@ -1,9 +1,9 @@
 
 package irrgarten;
-
+//COMPROBADOO
 public class Weapon extends CombatElement {
-    private float power; //HAY QUE QUITARLO??
-    private int uses;
+    //private float power;
+    //private int uses;
     
     // This is a constructor for the `Weapon` class in Java. It takes two parameters, `power` of type float
     // and `uses` of type int, and assigns the values of these parameters to the corresponding instance

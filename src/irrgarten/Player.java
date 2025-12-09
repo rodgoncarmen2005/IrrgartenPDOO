@@ -4,7 +4,7 @@ package irrgarten;
 import java.util.ArrayList; //https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
 //import java.util.Iterator; Para usar iteradores en receivedWeapon(Weapon w)
 
-
+//COMPROBADOOO
 public class Player extends LabyrinthCharacter {
     
     private static final int MAX_WEAPONS = 2; //(max armas por jugador)
@@ -56,11 +56,20 @@ public class Player extends LabyrinthCharacter {
         //col = -1; 
         weapons = new ArrayList<Weapon>(); 
         shields = new ArrayList<Shield>(); 
+        
+        weaponCardDeck= new WeaponCardDeck();
+        shieldCardDeck= new ShieldCardDeck();
       
     }
     
     public Player(Player other){
         super(other); 
+        
+        number = other.getNumber();
+        weapons = new ArrayList<Weapon>(other.weapons);
+        shields= new ArrayList<>(other.shields);
+        weaponCardDeck=other.weaponCardDeck;
+        shieldCardDeck= other.shieldCardDeck;
     }
             
     /**
@@ -111,7 +120,7 @@ public class Player extends LabyrinthCharacter {
      */
     @Override
     public float attack(){
-        return this.getStrength() + sumWeapons(); 
+        return getStrength() + sumWeapons(); 
     }    
     
     /**
@@ -160,17 +169,22 @@ public class Player extends LabyrinthCharacter {
         //AÑADIDOS PARA PLAYER
         // Weapons
         s += "\tWeapons: [";
-        for(Weapon w : weapons) {
-            s += w.toString() + " ";
+        for (int i = 0; i < weapons.size(); i++) {
+            s += weapons.get(i).toString();
+            if (i < weapons.size() - 1)
+                s += ", ";
         }
         s += "]\n";
-        
-        //Shields
-        s += "\tShields: ["; 
-        for(Shield sh : shields) {
-            s += sh.toString() + " ";
+
+        // Shields
+        s += "\tShields: [";
+        for (int i = 0; i < shields.size(); i++) {
+            s += shields.get(i).toString();
+            if (i < shields.size() - 1)
+                s += ", ";
         }
         s += "]";
+
         
         return s;
     }
@@ -216,21 +230,19 @@ public class Player extends LabyrinthCharacter {
     }
     
     /**
-     * Crea un arma con los parametros que se decidan con el dado.
+     * Crea un arma con los parametros que se decidan con la baraja.
      * @return una nueva arma.
      */
     private Weapon newWeapon(){
-        Weapon w = new Weapon(Dice.weaponPower(), Dice.usesLeft()); 
-        return w; 
+        return weaponCardDeck.newCard(); 
     }
     
     /**
-     * Crea un escudo con los parametros que se decidan con el dado.
+     * Crea un escudo con los parametros que se decidan con la baraja.
      * @return un nuevo escudo.
      */
     private Shield newShield(){
-        Shield s = new Shield(Dice.shieldPower(), Dice.usesLeft()); 
-        return s; 
+        return shieldCardDeck.newCard(); 
     }
     
     /**
