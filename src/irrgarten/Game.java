@@ -38,7 +38,8 @@ public class Game {
         monsters = new ArrayList<>(); 
         
         for (int i = 0; i < nplayers; ++i){
-            Player p = new Player(Character.forDigit(i, 10), Dice.randomIntelligence(), Dice.randomStrength());
+            //Player p = new Player(Character.forDigit(i, 10), Dice.randomIntelligence(), Dice.randomStrength());
+            Player p = new Player(Character.forDigit(i, 10), 0, Dice.randomStrength());
             players.add(p); 
         }
         
@@ -226,6 +227,11 @@ public class Game {
         if (resurrect){
             currentPlayer.resurrect();
             logResurrected();
+            
+            // Se cambia la posición por el fuzzyplayer
+            FuzzyPlayer fuzzy= new FuzzyPlayer(this.currentPlayer);
+            this.players.set(this.currentPlayerIndex, fuzzy);
+            this.labyrinth.convertToFuzzy(fuzzy);
         }
         else logPlayerSkipTurn();
     }
