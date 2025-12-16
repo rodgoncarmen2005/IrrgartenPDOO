@@ -125,7 +125,13 @@ public class Dice {
      * @return valor aleatorio en [0, competence).
      */
     public static float intensity(float competence){
-        return generator.nextFloat(competence);
+        if (competence <= 0) { 
+            return 0f;
+        }   
+        else{
+            //competence tiene que ser >= 0
+            return generator.nextFloat(competence);
+        }
     }
     
     /**

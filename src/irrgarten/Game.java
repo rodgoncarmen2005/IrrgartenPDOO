@@ -240,7 +240,7 @@ public class Game {
      * Se añade a log el jugador ganador del combate.
      */
     private void logPlayerWon(){
-          log += "Winner: player " + currentPlayerIndex + "\n"; 
+          log += "Winner: Player " + currentPlayerIndex + "\n"; 
     }
     
     /**
@@ -254,7 +254,7 @@ public class Game {
      * Se añade a log que el jugador actual ha resucitado.
      */
     private void logResurrected(){
-            log += "Resurrected: player " + currentPlayerIndex+ "\n";
+            log += "Resurrected: Player " + currentPlayerIndex+ "\n";
     }
     
     /**
@@ -268,7 +268,7 @@ public class Game {
      * Se añade a log que el jugador ha intentado un accion no permitida.
      */
     private void logPlayerNoOrders(){
-            log += "The instruction for player" + currentPlayerIndex + " could not be followed." + "\n"; 
+            log += "The instruction for Player " + currentPlayerIndex + " could not be followed." + "\n"; 
     }
     
     /**
