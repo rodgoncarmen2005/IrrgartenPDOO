@@ -157,7 +157,7 @@ public class Dice {
      */
     public static Directions nextStep(Directions preference, ArrayList<Directions> validMoves, float intelligence){
         Directions dir = preference;
-        if(generator.nextFloat() > intelligence){
+        if(generator.nextFloat() > (intelligence / Dice.MAX_INTELLIGENCE)){
             dir = validMoves.get(generator.nextInt(validMoves.size())); 
         }
         return dir; 
