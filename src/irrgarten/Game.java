@@ -38,8 +38,7 @@ public class Game {
         monsters = new ArrayList<>(); 
         
         for (int i = 0; i < nplayers; ++i){
-            //Player p = new Player(Character.forDigit(i, 10), Dice.randomIntelligence(), Dice.randomStrength());
-            Player p = new Player(Character.forDigit(i, 10), 0, Dice.randomStrength());
+            Player p = new Player(Character.forDigit(i, 10), Dice.randomIntelligence(), Dice.randomStrength());
             players.add(p); 
         }
         

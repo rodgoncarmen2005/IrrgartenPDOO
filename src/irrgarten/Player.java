@@ -11,7 +11,7 @@ public class Player extends LabyrinthCharacter {
     
     private static final int MAX_SHIELDS = 3; //(max escudos por jugador)
     
-    private static final int INITIAL_HEALTH = 3; //(salud inicial del jugador)
+    private static final int INITIAL_HEALTH = 10; //(salud inicial del jugador)
     
     private static final int HITS2LOSE = 3; //(num de golpes que puede recibir antes de morir)
     

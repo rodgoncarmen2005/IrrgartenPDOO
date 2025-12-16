@@ -87,7 +87,7 @@ public class Cursors extends javax.swing.JDialog {
         direction = Directions.UP; 
 
         // 2. Ejecutar el método dispose para cerrar el diálogo
-        dispose();    // TODO add your handling code here:
+        dispose();  
     }//GEN-LAST:event_UPbuttonActionPerformed
 
     private void DOWNbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DOWNbuttonActionPerformed

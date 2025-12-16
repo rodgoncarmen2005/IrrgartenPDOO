@@ -15,7 +15,7 @@ public class TextUI implements UI{
         return s.charAt(0);
     }
     
-
+    @Override
     public Directions nextMove() {
         System.out.print("Where? ");
         
@@ -50,6 +50,7 @@ public class TextUI implements UI{
         return direction;
     }
     
+    @Override
     public void showGame(GameState gameState) {   
         
         //Secuencia de cadenas por consola con los atributos de GameState
