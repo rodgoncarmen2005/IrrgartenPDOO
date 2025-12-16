@@ -231,7 +231,7 @@ public class Game {
             // Se cambia la posición por el fuzzyplayer
             FuzzyPlayer fuzzy= new FuzzyPlayer(this.currentPlayer);
             this.players.set(this.currentPlayerIndex, fuzzy);
-            this.labyrinth.convertToFuzzy(fuzzy);
+            this.labyrinth.toFuzzy(fuzzy);
         }
         else logPlayerSkipTurn();
     }

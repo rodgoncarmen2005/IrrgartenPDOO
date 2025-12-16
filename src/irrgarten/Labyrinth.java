@@ -430,7 +430,7 @@ public class Labyrinth {
         return output;
     }
     
-    public void convertToFuzzy(FuzzyPlayer other){
+    public void toFuzzy(FuzzyPlayer other){
         int row=other.getRow();
         int col=other.getCol();
         if(this.players[row][col].getNumber() == other.getNumber())

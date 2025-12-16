@@ -133,7 +133,7 @@ public class GraphicUI extends javax.swing.JFrame implements UI{
     this.jugador_actual.setText("Current player: " + gameState.getCurrentPlayer());
     
     if (gameState.getWinner()) {
-        this.ganador.setText("Winner: Player!");
+        this.ganador.setText("Winner: Player " + gameState.getCurrentPlayer() + "!");
         this.ganador.setVisible(true);
     } else {
         this.ganador.setVisible(false);
