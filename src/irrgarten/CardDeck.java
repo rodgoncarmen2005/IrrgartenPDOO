@@ -1,23 +1,17 @@
-/*Una clase paramétrica en Java, también conocida como clase genérica,
-es una plantilla que define una clase con uno o más parámetros de tipo. 
-Estos parámetros, representados por letras como T o E, se reemplazan por tipos de clase 
-concretos (como String o Integer) al crear una instancia de la clase, permitiendo que 
-la clase maneje diferentes tipos de datos de manera segura y reutilizable. */
 package irrgarten;
 
 import java.util.Collections;
 import java.util.ArrayList;
 
 
-
+//<T extends CombatElement> obliga a que solo pueda instanciarse como un weapon o shield
 abstract class CardDeck <T extends CombatElement> {
     
     private ArrayList<T> cardDeck;
     
     protected static final int TAM = 20;
     
-    //Recordar: aunque es un constructor, no podemos instanciar la clase
-    //por se abstracta
+    //Recordar: aunque es un constructor, no podemos instanciar la clase por ser abstracta
     public CardDeck(){
         cardDeck = new ArrayList<>();
     }

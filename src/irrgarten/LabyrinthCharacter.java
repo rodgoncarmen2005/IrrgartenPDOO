@@ -1,13 +1,6 @@
 package irrgarten;
 
-//NO SE INSTANCIA, NUNCA NEW COMBATELEMENT
-//SI TIENE CONSTRUCTOR PORQUE HAY QUE INICIALIZAR ATRIBUTOS
-//SI SE PUEDE USAR COMO TIPO DE DATO. 
-    //P.E ARRAYLIST<COMBATELEMENT> LISTA = NEW ARRAYLIST<>(); 
-    // LISTA.ADD(NEW WEAPON(...))
-
 abstract class LabyrinthCharacter { 
-    //COMPROBADOOO
     private String name; //(nombre del personaje)
     
     private float intelligence; //(inteligencia del personaje)
@@ -27,6 +20,7 @@ abstract class LabyrinthCharacter {
      * @param strength fuerza del personaje
      * @param health salud del personaje
      */
+    //Recordar: aunque es un constructor, no podemos instanciar la clase por ser abstracta
     public LabyrinthCharacter(String name , float intelligence, float strength, float health){
         this.name = name; 
         this.intelligence = intelligence; 

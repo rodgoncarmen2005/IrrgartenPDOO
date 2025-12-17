@@ -2,6 +2,14 @@ package irrgarten;
 
 import java.util.ArrayList;
 
+/**
+ * Los FuzzyPlayer son jugadores que se mueven, atacan y defienden utilizando el azar y 
+ * no de forma tan determinista como los jugadores existentes hasta ahora. 
+ * Un FuzzyPlayer solo puede crearse a partir de otro jugador y dicha creación se produce
+ * como resultado de la resurrección del mismo.
+ */
+
+
 public class FuzzyPlayer extends Player{
     
     /**
@@ -34,8 +42,7 @@ public class FuzzyPlayer extends Player{
     public float attack(){ //IMPLEMENTACION DISTINTA DE PLAYER
         return sumWeapons() + Dice.intensity(this.getStrength()); 
     }
-    
-    //PREGUNTAR AL PROFESOR
+ 
     /**
      * Defensa total del jugador como su intensidad segun Dice + proteccion de sus escudos.
      * @return suma de inteligencia + proteccion de sus escudos. 

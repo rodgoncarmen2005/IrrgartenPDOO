@@ -2,9 +2,7 @@
 package irrgarten;
 
 import java.util.ArrayList; //https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html
-//import java.util.Iterator; Para usar iteradores en receivedWeapon(Weapon w)
 
-//COMPROBADOOO
 public class Player extends LabyrinthCharacter {
     
     private static final int MAX_WEAPONS = 2; //(max armas por jugador)
@@ -38,6 +36,25 @@ public class Player extends LabyrinthCharacter {
     private WeaponCardDeck weaponCardDeck;
     
     private ShieldCardDeck shieldCardDeck;
+    
+    
+    //Declarados en LabyrinthCharacter (superclase)
+    
+    /*private String name; //(nombre del jugador)
+    
+    private float intelligence; //(inteligencia actual del jugador)
+    
+    private float strength; //(fuerza actual del jugador)
+    
+    private float health; //(salud actual del jugador)
+    
+    private int row; //(fila en la que se encuentra dentro del laberinto)
+    
+    private int col; //(columna en la que se encuentra dentro del laberinto)*/
+    
+
+    
+    
     /**
      * Constructor de la clase Player. Se inicializa con una posicion (-1,-1) en el tablero.
      * Actualmente no tiene armas ni escudos.

@@ -1,8 +1,6 @@
 
 package irrgarten;
 
-//COMPROBADOO
-
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -146,7 +144,6 @@ public class Dice {
         return generator.nextFloat() >= (usesLeft*1.0f/MAX_USES); 
     } 
     
-    //PREGUNTAR AL PROFESOR
     /**
      * Indica la direccion de movimiento preferente con una propabilidad proporcional al nivel de inteligencia.
      * En caso de que no sea igual a preference, se elegira una aleatoria de validMoves.
@@ -157,6 +154,7 @@ public class Dice {
      */
     public static Directions nextStep(Directions preference, ArrayList<Directions> validMoves, float intelligence){
         Directions dir = preference;
+        
         if(generator.nextFloat() > (intelligence / Dice.MAX_INTELLIGENCE)){
             dir = validMoves.get(generator.nextInt(validMoves.size())); 
         }

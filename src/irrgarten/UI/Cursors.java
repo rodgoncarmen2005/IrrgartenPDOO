@@ -33,6 +33,7 @@ public class Cursors extends javax.swing.JDialog {
         DOWNbutton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 153, 102));
 
         UPbutton.setText("UP");
         UPbutton.addActionListener(this::UPbuttonActionPerformed);

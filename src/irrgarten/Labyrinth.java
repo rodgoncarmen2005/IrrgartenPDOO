@@ -430,6 +430,11 @@ public class Labyrinth {
         return output;
     }
     
+    //----CAMBIOS PARA FUZZYPLAYER
+    /**
+     * Convierte a un jugador en un FuzzyPlayer (manteniendo su posicion)
+     * @param other FuzzyPlayer que sustituye al jugador en su posición
+     */
     public void toFuzzy(FuzzyPlayer other){
         int row=other.getRow();
         int col=other.getCol();

@@ -9,7 +9,9 @@ abstract class CombatElement {
     // `uses` instance variables of the `CombatElement` class with the values passed as arguments to the
     // constructor. This allows an object of the `CombatElement` class to be created with specific initial
     // values for its effect and uses properties.
-    public CombatElement(float effect, int uses){
+    
+    //Recordar: aunque es un constructor, no podemos instanciar la clase por ser abstracta
+    public CombatElement(float effect, int uses){ 
         this.effect = effect;
         this.uses = uses;
     }

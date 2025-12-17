@@ -1,15 +1,16 @@
 
 package irrgarten;
-//COMPROBADOO
 
 public class Monster extends LabyrinthCharacter {
     private static final int INITIAL_HEALTH = 5;
-    //private String name;
-    //private float intelligence;
-    //private float strength;
-    //private float health;
-    //private int row;
-    //private int col;
+    
+    //Declarados en LabyrinthCharacter (superclase)
+    /*private String name;
+      private float intelligence;
+      private float strength;
+      private float health;
+      private int row;
+      private int col;*/
     
 
     // This part of the code is the constructor of the `Monster` class in Java. When a new `Monster` object

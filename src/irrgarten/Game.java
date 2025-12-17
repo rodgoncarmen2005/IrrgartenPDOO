@@ -216,6 +216,7 @@ public class Game {
         else logMonsterWon();
     }
     
+    //---CAMBIOS PARA FUZZYPLAYER
     /**
      * Maneja la resurrecion del jugador. Se decide con los resultados del dado.
      * Se aniade a log si el jugador resucita o no. Si no resucita, logPlayerSkipTurn().
