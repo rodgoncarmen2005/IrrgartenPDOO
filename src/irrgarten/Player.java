@@ -13,19 +13,7 @@ public class Player extends LabyrinthCharacter {
     
     private static final int HITS2LOSE = 3; //(num de golpes que puede recibir antes de morir)
     
-    //private String name; //(nombre del jugador)
-    
     private char number; //(numero identificador del jugador)
-    
-    //private float intelligence; //(inteligencia actual del jugador)
-    
-    //private float strength; //(fuerza actual del jugador)
-    
-    //private float health; //(salud actual del jugador)
-    
-    //private int row; //(fila en la que se encuentra dentro del laberinto)
-    
-    //private int col; //(columna en la que se encuentra dentro del laberinto)
     
     private int consecutiveHits=0; //(num golpes consecutivos que ha recibido un jugador)
     
