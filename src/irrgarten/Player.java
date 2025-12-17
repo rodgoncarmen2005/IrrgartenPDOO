@@ -46,8 +46,8 @@ public class Player extends LabyrinthCharacter {
      * @param strength fuerza
      */
     public Player(char number, float intelligence, float strength){
-        
-        super("Player " + number,intelligence, strength, INITIAL_HEALTH);
+        //La llamada a super tiene que ser obligatoriamente la primera linea del constructor
+        super("Player " + number,intelligence, strength, INITIAL_HEALTH); 
         this.number = number; 
         weapons = new ArrayList<Weapon>(); 
         shields = new ArrayList<Shield>(); 
