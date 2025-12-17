@@ -35,8 +35,13 @@ public class Player extends LabyrinthCharacter {
     private int row; //(fila en la que se encuentra dentro del laberinto)
     private int col; //(columna en la que se encuentra dentro del laberinto)*/
     
+    //CASTING: 
+    //Ejemplo: `Persona p = new Profesor;`  `( (Profesor) p ).impartirClase();`
+    //Downcasting: considera temporalmente el tipo de una subclase. 
+    //Upcasting: considera temporalmente el tipo de una superclase. Normalmente es innecesario y redundante (es-un). 
+    //**IMPORTANTE:** Las operaciones de casting NO realizan ninguna transformación en el objeto referenciado ni en su comportamiento. Solo sirven para evitar errores de compilación.
 
-    
+
     
     /**
      * Constructor de la clase Player. Se inicializa con una posicion (-1,-1) en el tablero.
