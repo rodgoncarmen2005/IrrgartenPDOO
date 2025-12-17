@@ -41,15 +41,10 @@ public class Player extends LabyrinthCharacter {
     //Declarados en LabyrinthCharacter (superclase)
     
     /*private String name; //(nombre del jugador)
-    
     private float intelligence; //(inteligencia actual del jugador)
-    
     private float strength; //(fuerza actual del jugador)
-    
     private float health; //(salud actual del jugador)
-    
     private int row; //(fila en la que se encuentra dentro del laberinto)
-    
     private int col; //(columna en la que se encuentra dentro del laberinto)*/
     
 
@@ -65,12 +60,7 @@ public class Player extends LabyrinthCharacter {
     public Player(char number, float intelligence, float strength){
         
         super("Player " + number,intelligence, strength, INITIAL_HEALTH);
-        this.number = number; //HAY QUE DEJARLO??
-        //this.intelligence = intelligence; 
-        //this.strength = strength; 
-        //health = INITIAL_HEALTH; 
-        //row = -1;  
-        //col = -1; 
+        this.number = number; 
         weapons = new ArrayList<Weapon>(); 
         shields = new ArrayList<Shield>(); 
         
@@ -180,7 +170,7 @@ public class Player extends LabyrinthCharacter {
      */
     @Override
     public String toString(){
-        //String s = name + "[I:" + intelligence + ", S:" + strength + ", H" + health + ", Pos:" + row + "," + col + ", Hits:" + consecutiveHits + "\n"; 
+        
         String s = super.toString();
         
         //AÑADIDOS PARA PLAYER

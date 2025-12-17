@@ -1,7 +1,9 @@
 
 package irrgarten;
-//COMPROBADOO
+
 public class Weapon extends CombatElement {
+    
+    //Declarados en CombatElement (superclase)
     //private float power;
     //private int uses;
     
@@ -31,7 +33,7 @@ public class Weapon extends CombatElement {
      * a comma.
      */
     @Override
-    public String toString () {//SUPER TOSTRING
+    public String toString () {
         return "W" + super.toString();
     }
     

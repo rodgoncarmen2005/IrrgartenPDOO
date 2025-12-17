@@ -1,7 +1,9 @@
 
 package irrgarten;
-//COMPROBADOOO
+
 public class Shield extends CombatElement{
+    
+    //Declarados en CombatElement (superclase)
     //private float protection;
     //private int uses;
     
